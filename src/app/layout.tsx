@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import React from 'react';
+import type { Metadata } from 'next';
+import './globals.css';
+import { Header } from '@/components/navigation/Header';
 
 export const metadata: Metadata = {
-  title: "Luxury Villa Rental | Your Dream Vacation",
-  description: "Experience luxury living in our beautiful villa. Perfect for families and groups seeking an unforgettable vacation.",
+  title: 'Mips Grove | Luxury Villa Rental',
+  description: 'Experience luxury living at Mips Grove. Your dream vacation awaits at our beautiful villa.',
 };
 
 export default function RootLayout({
@@ -12,8 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang='en'>
+      <body className='antialiased'>
+        <Header />
         {children}
       </body>
     </html>
