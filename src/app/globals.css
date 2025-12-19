@@ -1,27 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fafaf9;
+    --foreground: #1c1917;
+    --gold-primary: #d4984d;
+    --gold-dark: #a06234;
+  }
+
+  body {
+    @apply font-sans text-stone-800 bg-stone-50;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-gold-500 hover:bg-gold-600 text-white font-medium px-8 py-3 rounded-md transition-all duration-300 hover:shadow-luxury;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white font-medium px-8 py-3 rounded-md transition-all duration-300;
+  }
+
+  .heading-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-stone-900;
+  }
+
+  .heading-section {
+    @apply text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-stone-900;
+  }
+
+  .text-luxury {
+    @apply bg-gradient-luxury bg-clip-text text-transparent;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
   }
 }
