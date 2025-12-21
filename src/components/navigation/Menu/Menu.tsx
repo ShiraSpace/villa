@@ -14,14 +14,11 @@ const menuItems: MenuItem[] = [
 ];
 
 export function Menu(): JSX.Element {
-return (
-  <nav data-testid={TEST_ID.MENU} className="hidden md:flex items-center space-x-8">
-    {menuItems.map((item) => (
-      <MenuButton
-        key={item.href}
-        menuItem={item}
-      />
-    ))}
-  </nav>
+  return (
+    <nav data-testid={TEST_ID.MENU} className='hidden md:flex items-center space-x-8'>
+      {menuItems.map((item) => (
+        <MenuButton key={item.href} menuItem={item} />
+      ))}
+    </nav>
   );
 }

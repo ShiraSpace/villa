@@ -7,11 +7,9 @@ describe('navigation-utils', () => {
     });
 
     it('should scroll to element when it exists', () => {
-      const mockElement = {
-        ...document.createElement('div'),
-        id: 'hero',
-        scrollIntoView: jest.fn(),
-      };
+      const mockElement = document.createElement('div');
+      mockElement.id = 'hero';
+      mockElement.scrollIntoView = jest.fn();
 
       document.body.appendChild(mockElement);
 

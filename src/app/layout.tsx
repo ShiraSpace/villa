@@ -5,7 +5,8 @@ import { Header } from '@/components/navigation/Header';
 
 export const metadata: Metadata = {
   title: 'Mips Grove | Luxury Villa Rental',
-  description: 'Experience luxury living at Mips Grove. Your dream vacation awaits at our beautiful villa.',
+  description:
+    'Experience luxury living at Mips Grove. Your dream vacation awaits at our beautiful villa.',
 };
 
 export default function RootLayout({

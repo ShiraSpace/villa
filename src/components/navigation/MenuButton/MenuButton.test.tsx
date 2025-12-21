@@ -42,7 +42,7 @@ describe('MenuButton', () => {
   it('should render underline span for hover effect', () => {
     const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
     const span = button.querySelector('span');
-    
+
     expect(span).toBeInTheDocument();
     expect(span).toHaveClass('absolute', 'bottom-0', 'bg-gold-500');
   });
