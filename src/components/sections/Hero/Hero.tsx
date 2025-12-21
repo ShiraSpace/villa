@@ -25,7 +25,7 @@ export function Hero(): JSX.Element {
       >
         <HeroTitle />
         <HeroTagline />
-        <HeroCTA />
+        {/*<HeroCTA />*/}
       </motion.div>
     </section>
   );

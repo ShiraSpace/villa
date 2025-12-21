@@ -13,11 +13,15 @@ const menuItems: MenuItem[] = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export function Menu(): JSX.Element {
+interface MenuProps {
+  isScrolled: boolean;
+}
+
+export function Menu({ isScrolled }: MenuProps): JSX.Element {
   return (
     <nav data-testid={TEST_ID.MENU} className='hidden md:flex items-center space-x-8'>
       {menuItems.map((item) => (
-        <MenuButton key={item.href} menuItem={item} />
+        <MenuButton key={item.href} menuItem={item} isScrolled={isScrolled} />
       ))}
     </nav>
   );

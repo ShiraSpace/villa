@@ -13,7 +13,7 @@ describe('ContactButton', () => {
     jest.clearAllMocks();
     (navigationUtils.handleLinkClick as jest.Mock) = mockHandleLinkClick;
 
-    render(<ContactButton />);
+    render(<ContactButton isScrolled={true} />);
   });
 
   it('should render contact button text', () => {
@@ -34,9 +34,9 @@ describe('ContactButton', () => {
     expect(mockHandleLinkClick).toHaveBeenCalledWith('#contact');
   });
 
-  it('should have btn-primary class', () => {
+  it('should have compact button styling', () => {
     const button = screen.getByTestId(TEST_ID.CONTACT_BUTTON);
-    expect(button).toHaveClass('btn-primary');
+    expect(button).toHaveClass('bg-gold-500', 'px-6', 'py-2', 'text-sm');
   });
 
   it('should be hidden on mobile (md:block class)', () => {

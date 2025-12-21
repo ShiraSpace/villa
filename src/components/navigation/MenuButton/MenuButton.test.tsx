@@ -17,38 +17,52 @@ describe('MenuButton', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     (navigationUtils.handleLinkClick as jest.Mock) = mockHandleLinkClick;
-
-    render(<MenuButton menuItem={mockMenuItem} />);
   });
 
-  it('should render menu item label', () => {
-    expect(screen.getByText('Gallery')).toBeInTheDocument();
+  describe('when scrolled', () => {
+    beforeEach(() => {
+      render(<MenuButton menuItem={mockMenuItem} isScrolled={true} />);
+    });
+
+    it('should render menu item label', () => {
+      expect(screen.getByText('Gallery')).toBeInTheDocument();
+    });
+
+    it('should render as a button', () => {
+      const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
+      expect(button).toHaveRole('button');
+    });
+
+    it('should call handleLinkClick with correct href when clicked', async () => {
+      const user = userEvent.setup();
+      const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
+      await user.click(button);
+
+      expect(mockHandleLinkClick).toHaveBeenCalledWith('#gallery');
+    });
+
+    it('should render underline span for hover effect', () => {
+      const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
+      const span = button.querySelector('span');
+
+      expect(span).toBeInTheDocument();
+      expect(span).toHaveClass('absolute', 'bottom-0', 'bg-gold-400');
+    });
+
+    it('should have dark text', () => {
+      const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
+      expect(button).toHaveClass('text-stone-700');
+    });
   });
 
-  it('should render as a button', () => {
-    const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
-    expect(button).toHaveRole('button');
-  });
+  describe('when not scrolled', () => {
+    beforeEach(() => {
+      render(<MenuButton menuItem={mockMenuItem} isScrolled={false} />);
+    });
 
-  it('should call handleLinkClick with correct href when clicked', async () => {
-    const user = userEvent.setup();
-
-    const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
-    await user.click(button);
-
-    expect(mockHandleLinkClick).toHaveBeenCalledWith('#gallery');
-  });
-
-  it('should render underline span for hover effect', () => {
-    const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
-    const span = button.querySelector('span');
-
-    expect(span).toBeInTheDocument();
-    expect(span).toHaveClass('absolute', 'bottom-0', 'bg-gold-500');
-  });
-
-  it('should have correct CSS classes', () => {
-    const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
-    expect(button).toHaveClass('text-stone-700', 'hover:text-gold-600', 'transition-colors');
+    it('should have white text', () => {
+      const button = screen.getByTestId(TEST_ID.MENU_BUTTON);
+      expect(button).toHaveClass('text-white');
+    });
   });
 });

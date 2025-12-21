@@ -20,9 +20,9 @@ export function Header(): JSX.Element {
     >
       <div className='container-custom'>
         <div className='flex items-center justify-between h-20'>
-          <Logo />
-          <Menu />
-          <ContactButton />
+          <Logo isScrolled={isScrolled} />
+          <Menu isScrolled={isScrolled} />
+          <ContactButton isScrolled={isScrolled} />
         </div>
       </div>
     </header>

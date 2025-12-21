@@ -33,7 +33,7 @@ describe('Hero', () => {
       expect(screen.getByTestId(TEST_ID.HERO_TAGLINE)).toBeInTheDocument();
     });
 
-    it('should render HeroCTA', () => {
+    it.skip('should render HeroCTA', () => {
       expect(screen.getByTestId(TEST_ID.HERO_CTA)).toBeInTheDocument();
     });
   });

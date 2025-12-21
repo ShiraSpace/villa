@@ -5,17 +5,20 @@ import { TEST_ID } from '@/components/navigation/constants';
 
 interface MenuButtonProps {
   menuItem: MenuItem;
+  isScrolled: boolean;
 }
 
-export function MenuButton({ menuItem }: MenuButtonProps): JSX.Element {
+export function MenuButton({ menuItem, isScrolled }: MenuButtonProps): JSX.Element {
+  const textColor = isScrolled ? 'text-stone-700' : 'text-white';
+
   return (
     <button
       data-testid={TEST_ID.MENU_BUTTON}
       onClick={() => handleLinkClick(menuItem.href)}
-      className='text-stone-700 hover:text-gold-600 font-medium transition-colors relative group'
+      className={`hover:text-gold-400 font-medium transition-colors relative group ${textColor}`}
     >
       {menuItem.label}
-      <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300 group-hover:w-full'></span>
+      <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full'></span>
     </button>
   );
 }

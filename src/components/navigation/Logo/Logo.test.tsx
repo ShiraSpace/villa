@@ -12,30 +12,44 @@ describe('Logo', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     (navigationUtils.handleLinkClick as jest.Mock) = mockHandleLinkClick;
-
-    render(<Logo />);
   });
 
-  it('should render logo text', () => {
-    expect(screen.getByText(HEADER_CONTENT.LOGO_TEXT)).toBeInTheDocument();
+  describe('when scrolled', () => {
+    beforeEach(() => {
+      render(<Logo isScrolled={true} />);
+    });
+
+    it('should render logo text', () => {
+      expect(screen.getByText(HEADER_CONTENT.LOGO_TEXT)).toBeInTheDocument();
+    });
+
+    it('should render as a button', () => {
+      const button = screen.getByTestId(TEST_ID.LOGO);
+      expect(button).toHaveRole('button');
+    });
+
+    it('should call handleLinkClick with #hero when clicked', async () => {
+      const user = userEvent.setup();
+      const button = screen.getByTestId(TEST_ID.LOGO);
+      await user.click(button);
+
+      expect(mockHandleLinkClick).toHaveBeenCalledWith('#hero');
+    });
+
+    it('should have dark text', () => {
+      const button = screen.getByTestId(TEST_ID.LOGO);
+      expect(button).toHaveClass('text-stone-900');
+    });
   });
 
-  it('should render as a button', () => {
-    const button = screen.getByTestId(TEST_ID.LOGO);
-    expect(button).toHaveRole('button');
-  });
+  describe('when not scrolled', () => {
+    beforeEach(() => {
+      render(<Logo isScrolled={false} />);
+    });
 
-  it('should call handleLinkClick with #hero when clicked', async () => {
-    const user = userEvent.setup();
-
-    const button = screen.getByTestId(TEST_ID.LOGO);
-    await user.click(button);
-
-    expect(mockHandleLinkClick).toHaveBeenCalledWith('#hero');
-  });
-
-  it('should have correct CSS classes', () => {
-    const button = screen.getByTestId(TEST_ID.LOGO);
-    expect(button).toHaveClass('text-2xl', 'font-serif', 'font-bold', 'text-stone-900');
+    it('should have white text', () => {
+      const button = screen.getByTestId(TEST_ID.LOGO);
+      expect(button).toHaveClass('text-white');
+    });
   });
 });

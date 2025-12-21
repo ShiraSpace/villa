@@ -47,7 +47,7 @@ export default {
       },
       fontFamily: {
         // Luxury serif for headings
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        serif: ['Gentium Plus', 'Georgia', 'serif'],
         // Clean sans for body
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },

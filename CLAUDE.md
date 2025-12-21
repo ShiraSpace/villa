@@ -107,7 +107,7 @@ npm run build
 
 - Tailwind CSS 3.4.1 for styling
 - Custom luxury theme with gold, stone, and ocean colors
-- Google Fonts: Playfair Display (serif) and Inter (sans)
+- Google Fonts: Gentium Plus (serif) and Inter (sans)
 - Custom animations: fade-in, slide-up, slide-in-right
 - Global styles in `src/app/globals.css`
 - PostCSS with autoprefixer
