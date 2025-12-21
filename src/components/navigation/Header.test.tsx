@@ -43,6 +43,7 @@ describe('Header', () => {
     render(<Header />);
 
     const header = screen.getByTestId(TEST_ID.HEADER);
+
     expect(header).toHaveClass('bg-transparent');
     expect(header).not.toHaveClass('bg-white', 'shadow-md');
   });
@@ -52,6 +53,7 @@ describe('Header', () => {
     render(<Header />);
 
     const header = screen.getByTestId(TEST_ID.HEADER);
+
     expect(header).toHaveClass('bg-white', 'shadow-md', 'backdrop-blur-sm');
     expect(header).not.toHaveClass('bg-transparent');
   });
@@ -61,6 +63,7 @@ describe('Header', () => {
     render(<Header />);
 
     const header = screen.getByTestId(TEST_ID.HEADER);
+
     expect(header).toHaveClass('bg-transparent');
     expect(header).not.toHaveClass('bg-white');
   });

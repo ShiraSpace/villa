@@ -1,5 +1,5 @@
 export const HEADER_CONTENT = {
-  LOGO_TEXT: 'Mips Grove',
+  LOGO_TEXT: 'S̄ạntis̄uk̄h Villa',
   CONTACT_BUTTON: 'Contact Us',
 };
 
