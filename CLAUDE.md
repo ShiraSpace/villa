@@ -102,15 +102,30 @@ src/
 │   └── globals.css         # Global styles and Tailwind config
 ├── components/
 │   └── navigation/
-│       ├── Header.tsx      # Main header with scroll effects
-│       ├── Logo.tsx        # Logo button component
-│       ├── Menu.tsx        # Desktop navigation menu
-│       ├── MenuButton.tsx  # Individual menu item
-│       ├── ContactButton.tsx # Contact button
+│       ├── Header/
+│       │   ├── Header.tsx
+│       │   ├── Header.test.tsx
+│       │   └── index.ts    # Export for simplified imports
+│       ├── Logo/
+│       │   ├── Logo.tsx
+│       │   ├── Logo.test.tsx
+│       │   └── index.ts
+│       ├── Menu/
+│       │   ├── Menu.tsx
+│       │   ├── Menu.test.tsx
+│       │   └── index.ts
+│       ├── MenuButton/
+│       │   ├── MenuButton.tsx
+│       │   ├── MenuButton.test.tsx
+│       │   └── index.ts
+│       ├── ContactButton/
+│       │   ├── ContactButton.tsx
+│       │   ├── ContactButton.test.tsx
+│       │   └── index.ts
 │       ├── types.ts        # Shared interfaces
 │       ├── constants.ts    # Content and test IDs
 │       ├── navigation-utils.ts # Shared utilities
-│       └── *.test.tsx      # Component tests
+│       └── navigation-utils.test.ts
 └── hooks/
     └── useScrollPosition.ts # Custom hook for scroll tracking
 public/
@@ -119,6 +134,11 @@ public/
     ├── gallery/
     └── rooms/
 ```
+
+**Component Organization:**
+- Components with 2+ files (prod + test) are organized in folders
+- Each component folder includes an `index.ts` for simplified imports
+- Shared utilities and types remain currently at the navigation level
 
 ### Component Architecture
 
