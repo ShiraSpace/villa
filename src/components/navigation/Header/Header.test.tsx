@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Header } from './Header';
 import * as useScrollPositionModule from '@/hooks/useScrollPosition';
-import { TEST_ID } from './constants';
+import { TEST_ID } from '../constants';
 
 jest.mock('@/hooks/useScrollPosition');
 

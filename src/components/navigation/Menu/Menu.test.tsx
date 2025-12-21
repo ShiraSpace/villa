@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { Menu } from './Menu';
-import { TEST_ID } from './constants';
+import { TEST_ID } from '../constants';
 
-jest.mock('./navigation-utils');
+jest.mock('../navigation-utils');
 
 describe('Menu', () => {
   beforeEach(() => {

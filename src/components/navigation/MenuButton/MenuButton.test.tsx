@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MenuButton } from './MenuButton';
-import * as navigationUtils from './navigation-utils';
-import { MenuItem } from './types';
-import { TEST_ID } from './constants';
+import * as navigationUtils from '../navigation-utils';
+import { MenuItem } from '../types';
+import { TEST_ID } from '../constants';
 
-jest.mock('./navigation-utils');
+jest.mock('../navigation-utils');
 
 describe('MenuButton', () => {
   const mockHandleLinkClick = jest.fn();

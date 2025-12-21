@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import { MenuItem } from './types';
+import { MenuItem } from '../types';
 import { MenuButton } from '@/components/navigation/MenuButton';
 import { TEST_ID } from '@/components/navigation/constants';
 

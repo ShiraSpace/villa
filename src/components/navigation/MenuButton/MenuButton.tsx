@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { handleLinkClick } from '@/components/navigation/navigation-utils';
-import { MenuItem } from './types';
+import { MenuItem } from '../types';
 import { TEST_ID } from '@/components/navigation/constants';
 
 interface MenuButtonProps {

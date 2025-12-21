@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ContactButton } from './ContactButton';
-import * as navigationUtils from './navigation-utils';
-import { HEADER_CONTENT, TEST_ID } from './constants';
+import * as navigationUtils from '../navigation-utils';
+import { HEADER_CONTENT, TEST_ID } from '../constants';
 
-jest.mock('./navigation-utils');
+jest.mock('../navigation-utils');
 
 describe('ContactButton', () => {
   const mockHandleLinkClick = jest.fn();
