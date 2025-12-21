@@ -13,7 +13,7 @@ export function Logo({ isScrolled }: LogoProps): JSX.Element {
     <button
       data-testid={TEST_ID.LOGO}
       onClick={() => handleLinkClick('#hero')}
-      className={`text-2xl font-serif font-bold hover:text-gold-400 transition-colors ${textColor}`}
+      className={`text-3xl font-serif font-bold hover:text-gold-400 transition-colors ${textColor}`}
     >
       {HEADER_CONTENT.LOGO_TEXT}
     </button>
