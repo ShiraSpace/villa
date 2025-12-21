@@ -4,15 +4,6 @@ import * as useScrollPositionModule from '@/hooks/useScrollPosition';
 import { TEST_ID } from './constants';
 
 jest.mock('@/hooks/useScrollPosition');
-jest.mock('./Logo', () => ({
-  Logo: () => <div data-testid='mock-logo'>Logo</div>,
-}));
-jest.mock('./Menu', () => ({
-  Menu: () => <nav data-testid='mock-menu'>Menu</nav>,
-}));
-jest.mock('./ContactButton', () => ({
-  ContactButton: () => <button data-testid='mock-contact'>Contact</button>,
-}));
 
 describe('Header', () => {
   const mockUseScrollPosition = jest.spyOn(useScrollPositionModule, 'useScrollPosition');
@@ -33,9 +24,9 @@ describe('Header', () => {
     mockUseScrollPosition.mockReturnValue(0);
     render(<Header />);
 
-    expect(screen.getByTestId('mock-logo')).toBeInTheDocument();
-    expect(screen.getByTestId('mock-menu')).toBeInTheDocument();
-    expect(screen.getByTestId('mock-contact')).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_ID.CONTACT_BUTTON)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_ID.LOGO)).toBeInTheDocument();
+    expect(screen.getByTestId(TEST_ID.MENU)).toBeInTheDocument();
   });
 
   it('should have transparent background when not scrolled', () => {
