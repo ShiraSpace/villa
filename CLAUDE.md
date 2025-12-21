@@ -125,39 +125,46 @@ npm run build
 src/
 ├── app/
 │   ├── layout.tsx          # Root layout with Header
-│   ├── page.tsx            # Home page
+│   ├── page.tsx            # Home page with Hero
 │   └── globals.css         # Global styles and Tailwind config
 ├── components/
-│   └── navigation/
-│       ├── Header/
-│       │   ├── Header.tsx
-│       │   ├── Header.test.tsx
-│       │   └── index.ts    # Export for simplified imports
-│       ├── Logo/
-│       │   ├── Logo.tsx
-│       │   ├── Logo.test.tsx
-│       │   └── index.ts
-│       ├── Menu/
-│       │   ├── Menu.tsx
-│       │   ├── Menu.test.tsx
-│       │   └── index.ts
-│       ├── MenuButton/
-│       │   ├── MenuButton.tsx
-│       │   ├── MenuButton.test.tsx
-│       │   └── index.ts
-│       ├── ContactButton/
-│       │   ├── ContactButton.tsx
-│       │   ├── ContactButton.test.tsx
-│       │   └── index.ts
-│       ├── types.ts        # Shared interfaces
-│       ├── constants.ts    # Content and test IDs
-│       ├── navigation-utils.ts # Shared utilities
-│       └── navigation-utils.test.ts
+│   ├── navigation/
+│   │   ├── Header/
+│   │   │   ├── Header.tsx
+│   │   │   ├── Header.test.tsx
+│   │   │   └── index.ts
+│   │   ├── Logo/
+│   │   ├── Menu/
+│   │   ├── MenuButton/
+│   │   ├── ContactButton/
+│   │   ├── types.ts        # Shared interfaces
+│   │   ├── constants.ts    # Content and test IDs
+│   │   ├── navigation-utils.ts # Shared utilities
+│   │   └── navigation-utils.test.ts
+│   ├── sections/
+│   │   └── Hero/
+│   │       ├── Hero.tsx    # Main Hero component
+│   │       ├── Hero.test.tsx
+│   │       ├── index.ts
+│   │       ├── HeroBackground/
+│   │       ├── HeroTitle/
+│   │       ├── HeroTagline/
+│   │       ├── HeroCTA/
+│   │       ├── animations.ts  # Framer Motion variants
+│   │       └── constants.ts   # Test IDs and content
+│   ├── ui/
+│   │   └── Button/
+│   │       ├── Button.tsx  # Link button for smooth scrolling
+│   │       ├── Button.test.tsx
+│   │       ├── constants.ts
+│   │       └── index.ts
+│   └── data/
+│       └── villa.ts        # Villa data with interface
 └── hooks/
     └── useScrollPosition.ts # Custom hook for scroll tracking
 public/
-└── images/                 # Placeholder images
-    ├── hero/
+└── images/
+    ├── hero/               # 5 hero image options
     ├── gallery/
     └── rooms/
 ```
@@ -180,6 +187,35 @@ public/
 - **Menu**: Desktop navigation (hidden on mobile)
 - **MenuButton**: Individual menu items with hover effects
 - **ContactButton**: Scrolls to contact section
+
+#### Hero System
+
+- **Hero**: Orchestrator component with Framer Motion animations
+  - Full-screen section with stagger animations
+  - Coordinates all subcomponents
+- **HeroBackground**: Image and overlay layer
+  - Next.js Image with priority loading
+  - Adjustable gradient overlay
+- **HeroTitle**: Villa name with text shadow
+- **HeroTagline**: Villa tagline with gold accent
+- **HeroCTA**: Call-to-action button
+- **animations.ts**: Shared Framer Motion variants
+  - Container variants with stagger children
+  - Item variants for fade + slide up
+
+#### UI Components
+
+- **Button**: Link button for smooth scrolling to sections
+  - Only accepts `href` prop (no onClick)
+  - Uses smooth scroll behavior
+  - Styled with `.btn-primary` class
+
+#### Data
+
+- **villa.ts**: Central villa data with TypeScript interface
+  - Villa name, tagline, description
+  - Capacity information
+  - Contact details
 
 #### Hooks
 

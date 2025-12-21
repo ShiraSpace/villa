@@ -1,7 +1,12 @@
-export default function Home() {
+'use client';
+
+import { JSX } from 'react';
+import { Hero } from '@/components/sections/Hero';
+
+export default function Home(): JSX.Element {
   return (
-    <main className='min-h-screen'>
-      <h1 className='text-4xl font-bold text-center pt-20'>Villa Website - Coming Soon</h1>
+    <main>
+      <Hero />
     </main>
   );
 }
