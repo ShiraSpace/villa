@@ -1,6 +1,7 @@
 import { JSX } from 'react';
 import { MenuItem } from './types';
 import { MenuButton } from '@/components/navigation/MenuButton';
+import { TEST_ID } from '@/components/navigation/constants';
 
 const menuItems: MenuItem[] = [
   { label: 'Home', href: '#hero' },
@@ -14,7 +15,7 @@ const menuItems: MenuItem[] = [
 
 export function Menu(): JSX.Element {
 return (
-  <nav className="hidden md:flex items-center space-x-8">
+  <nav data-testid={TEST_ID.MENU} className="hidden md:flex items-center space-x-8">
     {menuItems.map((item) => (
       <MenuButton
         key={item.href}
