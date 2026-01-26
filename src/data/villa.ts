@@ -14,8 +14,8 @@ export interface VillaData {
 }
 
 export const villaData: VillaData = {
-  name: 'S̄ạntis̄uk̄h Villa',
-  tagline: 'Freedom in a Jungle Paradise',
+  name: 'Baan Sook Villa',
+  tagline: 'Happiness in a Jungle Paradise',
   description:
     'Experience unparalleled luxury in our stunning oceanfront villa, where contemporary elegance meets tropical serenity. Nestled on pristine shores, our exclusive retreat offers breathtaking views, world-class amenities, and an unforgettable escape from the ordinary.',
   capacity: {
