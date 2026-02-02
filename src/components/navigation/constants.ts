@@ -1,5 +1,5 @@
 export const HEADER_CONTENT = {
-  LOGO_TEXT: 'S̄ạntis̄uk̄h',
+  LOGO_TEXT: 'Bān Suk̄h',
   CONTACT_BUTTON: 'Contact Us',
 };
 
