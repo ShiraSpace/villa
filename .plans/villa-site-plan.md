@@ -52,13 +52,13 @@ The plan is organized into **40 incremental steps** across 13 phases. Each step 
 
 - Overview component, add to main page
 
-**Phase 5: Gallery Section** (Steps 14-16)
-
-- Gallery data, Gallery component with lightbox, add to main page
-
-**Phase 6: Amenities Section** (Steps 17-19)
+**Phase 5: Amenities Section** (Steps 14-16)
 
 - Amenities data, Amenities component, add to main page
+
+**Phase 6: Gallery Section** (Steps 17-19)
+
+- Gallery data, Gallery component with lightbox, add to main page
 
 **Phase 7: Accommodations Section** (Steps 20-21)
 
@@ -225,31 +225,68 @@ mkdir -p src/{lib,data,hooks}
 - All tests passing
   **Status**: Complete and visually verified
 
-### Phase 4: Overview Section
+### Phase 4: Overview Section ✅ COMPLETED
 
-**Step 12: Build Overview Section** - `/src/components/sections/Overview.tsx`
+**Step 12: Build Overview Section** ✅ - `/src/components/sections/Overview/`
 
-- Brief villa introduction with luxury copy
-- Key stats cards (guests, bedrooms, bathrooms) with icons
-- 2-3 standout feature cards
-- Create supporting components:
-  - `/src/components/ui/Card.tsx` (feature cards)
-  - `/src/components/animations/FadeInView.tsx` (scroll animation)
+- Two-column layout: text content (left) + photo collage (right)
+- Subtitle with gold accent ("Welcome to Paradise")
+- Title with serif bold font ("Your Private Sanctuary in Koh Phangan")
+- Description paragraph with luxury copy
+- 4-photo collage grid (2x2) with hover zoom effects
+- Framer Motion scroll-triggered animations with stagger
+- Component structure (following Hero pattern):
+  - `Overview.tsx` - Orchestrator component
+  - `OverviewSubtitle/` - Gold accent subtitle
+  - `OverviewTitle/` - Section heading
+  - `OverviewDescription/` - Description text
+  - `OverviewCollage/` - 4-photo grid with hover effects
+  - `animations.ts` - Shared Framer Motion variants
+  - `constants.ts` - Test IDs and content
+- **Tests**: Complete test coverage (21 tests)
+  - Overview.test.tsx - Tests section composition
+  - OverviewSubtitle.test.tsx - Tests subtitle rendering
+  - OverviewTitle.test.tsx - Tests title rendering
+  - OverviewDescription.test.tsx - Tests description rendering
+  - OverviewCollage.test.tsx - Tests image grid and sources
+  **Status**: Complete with Framer Motion animations, full test coverage
 
-**Step 13: Add Overview to Main Page** - `/src/app/page.tsx`
+**Step 13: Add Overview to Main Page** ✅ - `/src/app/page.tsx`
 
-- Import and add Overview section below Hero
-- Add section ID for navigation (#overview)
-- Test scroll animations
+- Imported Overview section
+- Overview displays below Hero with animations
+- Section ID (#overview) for navigation
+- All tests passing (21 Overview tests + 68 total)
+  **Status**: Complete and visually verified
 
-### Phase 5: Gallery Section
+### Phase 5: Amenities Section
 
-**Step 14: Create Gallery Data** - `/src/data/gallery.ts`
+**Step 14: Create Amenities Data** - `/src/data/amenities.ts`
+
+- Array of amenities with categories (Kitchen, Outdoor, Entertainment, Services)
+- Icons mapping
+
+**Step 15: Build Amenities Section** - `/src/components/sections/Amenities.tsx`
+
+- Grid of amenity cards with Lucide icons
+- Grouped by category
+- Hover effects on cards
+- Scroll animations
+
+**Step 16: Add Amenities to Main Page** - `/src/app/page.tsx`
+
+- Import and add Amenities section
+- Add section ID (#amenities)
+- Test responsive grid
+
+### Phase 6: Gallery Section
+
+**Step 17: Create Gallery Data** - `/src/data/gallery.ts`
 
 - Image metadata (paths, categories, alt text)
 - Category definitions
 
-**Step 15: Build Gallery Section** - `/src/components/sections/Gallery.tsx`
+**Step 18: Build Gallery Section** - `/src/components/sections/Gallery.tsx`
 
 - Responsive grid layout (1 col mobile, 2 col tablet, 3-4 col desktop)
 - Next.js Image with blur placeholders
@@ -259,31 +296,11 @@ mkdir -p src/{lib,data,hooks}
   - `/src/components/ui/Modal.tsx` (lightbox)
   - `/src/components/ui/ImageWithPlaceholder.tsx` (optimized images)
 
-**Step 16: Add Gallery to Main Page** - `/src/app/page.tsx`
+**Step 19: Add Gallery to Main Page** - `/src/app/page.tsx`
 
 - Import and add Gallery section
 - Add section ID (#gallery)
 - Test lightbox functionality
-
-### Phase 6: Amenities Section
-
-**Step 17: Create Amenities Data** - `/src/data/amenities.ts`
-
-- Array of amenities with categories (Kitchen, Outdoor, Entertainment, Services)
-- Icons mapping
-
-**Step 18: Build Amenities Section** - `/src/components/sections/Amenities.tsx`
-
-- Grid of amenity cards with Lucide icons
-- Grouped by category
-- Hover effects on cards
-- Scroll animations
-
-**Step 19: Add Amenities to Main Page** - `/src/app/page.tsx`
-
-- Import and add Amenities section
-- Add section ID (#amenities)
-- Test responsive grid
 
 ### Phase 7: Accommodations Section
 
