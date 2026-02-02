@@ -12,7 +12,7 @@ A one-page scrolling layout provides the best experience for showcasing a single
 
 **Page Structure:**
 
-- `/` - Main landing page with sections: Hero → Overview → Gallery → Amenities → Accommodations → Location → Testimonials → Contact
+- `/` - Main landing page with sections: Hero → Overview → Details → Gallery → Amenities → Accommodations → Location → Testimonials → Contact
 
 ## Implementation Overview
 
@@ -51,6 +51,10 @@ The plan is organized into **40 incremental steps** across 13 phases. Each step 
 **Phase 4: Overview Section** (Steps 12-13)
 
 - Overview component, add to main page
+
+**Phase 4.5: Details Section** (Step 13.5) ✅
+
+- Details component with villa facts, add to main page
 
 **Phase 5: Amenities Section** (Steps 14-16)
 
@@ -258,6 +262,32 @@ mkdir -p src/{lib,data,hooks}
 - Section ID (#overview) for navigation
 - All tests passing (21 Overview tests + 68 total)
   **Status**: Complete and visually verified
+
+### Phase 4.5: Details Section ✅ COMPLETED
+
+**Step 13.5: Build Details Section** ✅ - `/src/components/sections/Details/`
+
+- Two-column layout: image (left) + facts grid (right)
+- Subtitle with gold accent ("At a Glance")
+- Title with serif bold font ("Our House")
+- 6 villa fact cards in a 2-column grid with hover effects
+- Framer Motion scroll-triggered animations with stagger
+- Component structure (following Overview pattern):
+  - `Details.tsx` - Orchestrator component
+  - `DetailsHeader/` - Subtitle and title
+  - `DetailsImage/` - Featured villa image
+  - `DetailsGrid/` - 2x3 grid of fact cards
+  - `DetailsFact/` - Individual fact card with title and description
+  - `animations.ts` - Shared Framer Motion variants
+  - `constants.ts` - Test IDs and content (DETAILS_CONTENT, TEST_ID)
+- **Tests**: Complete test coverage (24 tests)
+  - Details.test.tsx - Tests section composition (8 tests)
+  - DetailsHeader.test.tsx - Tests subtitle and title rendering (4 tests)
+  - DetailsImage.test.tsx - Tests image src and alt (3 tests)
+  - DetailsGrid.test.tsx - Tests facts grid rendering (5 tests)
+  - DetailsFact.test.tsx - Tests individual fact card (4 tests)
+- Added to main page with section ID (#details)
+  **Status**: ✅ COMPLETE - Implementation done, tests written and passing (24 tests), awaiting test commit
 
 ### Phase 5: Amenities Section
 
