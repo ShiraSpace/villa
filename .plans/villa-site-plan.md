@@ -12,7 +12,8 @@ A one-page scrolling layout provides the best experience for showcasing a single
 
 **Page Structure:**
 
-- `/` - Main landing page with sections: Hero → Overview → Details → Gallery → Amenities → Accommodations → Location → Testimonials → Contact
+- `/` - Main landing page with sections: Hero (with video) → Overview → Details → Amenities → Gallery → Reviews → Location → Contact
+- **Navigation**: Home · Overview · Amenities · Gallery · Reviews · Location · Contact
 
 ## Implementation Overview
 
@@ -36,19 +37,19 @@ The plan is organized into **40 incremental steps** across 13 phases. Each step 
 
 ### Step-by-Step Progression:
 
-**Phase 1: Foundation** (Steps 1-5)
+**Phase 1: Foundation** (Steps 1-5) ✅
 
 - Install dependencies, configure Tailwind, setup styles, download images, create folders
 
 **Phase 2: Navigation** (Steps 6-8)
 
-- Header, Mobile Menu, Footer
+- Header ✅, Mobile Menu, Footer
 
-**Phase 3: Hero Section** (Steps 9-11)
+**Phase 3: Hero Section** (Steps 9-11) ✅
 
-- Villa data, Hero component, integrate into main page
+- Villa data, Hero component (with video support), integrate into main page
 
-**Phase 4: Overview Section** (Steps 12-13)
+**Phase 4: Overview Section** (Steps 12-13) ✅
 
 - Overview component, add to main page
 
@@ -64,31 +65,28 @@ The plan is organized into **40 incremental steps** across 13 phases. Each step 
 
 - Gallery data, Gallery component with lightbox, add to main page
 
-**Phase 7: Accommodations Section** (Steps 20-21)
+**Phase 7: Reviews Section** (Steps 20-22)
 
-- Accommodations component, add to main page
+- Reviews data, Reviews carousel/cards, add to main page
 
-**Phase 8: Location Section** (Steps 22-23)
+**Phase 8: Location & Experiences Section** (Steps 23-24)
 
-- Location component with map, add to main page
+- Location component with map, nearby attractions, activities, add to main page
 
-**Phase 9: Testimonials Section** (Steps 24-26)
 
-- Testimonials data, Testimonials carousel, add to main page
+**Phase 9: Contact Section** (Steps 25-26)
 
-**Phase 10: Contact Section** (Steps 27-28)
+- Contact info with mailto/tel links, add to main page
 
-- Contact form component with validation, add to main page
-
-**Phase 11: Polish & Optimization** (Steps 29-35)
+**Phase 10: Polish & Optimization** (Steps 27-33)
 
 - Metadata, scroll effects, image optimization, mobile testing, accessibility, performance, SEO
 
-**Phase 12: Final Touches** (Steps 36-38)
+**Phase 11: Final Touches** (Steps 34-36)
 
 - Favicon, cross-browser testing, documentation
 
-**Phase 13: Deployment** (Steps 39-40)
+**Phase 12: Deployment** (Steps 37-38)
 
 - Production build, deploy to Vercel
 
@@ -332,56 +330,42 @@ mkdir -p src/{lib,data,hooks}
 - Add section ID (#gallery)
 - Test lightbox functionality
 
-### Phase 7: Accommodations Section
+### Phase 7: Reviews Section
 
-**Step 20: Build Accommodations Section** - `/src/components/sections/Accommodations.tsx`
-
-- Room-by-room breakdown (Master Suite, Guest Bedrooms, etc.)
-- Each room card with image, title, description, features list
-- Alternating layout pattern (image left/right)
-
-**Step 21: Add Accommodations to Main Page** - `/src/app/page.tsx`
-
-- Import and add Accommodations section
-- Add section ID (#accommodations)
-- Test alternating layout
-
-### Phase 8: Location Section
-
-**Step 22: Build Location Section** - `/src/components/sections/Location.tsx`
-
-- Embedded Google Map or static map image with pin
-- "Nearby Attractions" grid with distances
-- Icons for beach, restaurants, airport, etc.
-
-**Step 23: Add Location to Main Page** - `/src/app/page.tsx`
-
-- Import and add Location section
-- Add section ID (#location)
-- Test map display
-
-### Phase 9: Testimonials Section
-
-**Step 24: Create Testimonials Data** - `/src/data/testimonials.ts`
+**Step 20: Create Reviews Data** - `/src/data/reviews.ts`
 
 - Guest reviews with names, ratings, comments
 
-**Step 25: Build Testimonials Section** - `/src/components/sections/Testimonials.tsx`
+**Step 21: Build Reviews Section** - `/src/components/sections/Reviews.tsx`
 
 - Carousel of guest reviews using Framer Motion
 - Star ratings (Lucide icons)
 - Guest name, date, review text
 - Auto-play with manual controls
 
-**Step 26: Add Testimonials to Main Page** - `/src/app/page.tsx`
+**Step 22: Add Reviews to Main Page** - `/src/app/page.tsx`
 
-- Import and add Testimonials section
-- Add section ID (#testimonials)
+- Import and add Reviews section
+- Add section ID (#reviews)
 - Test carousel functionality
 
-### Phase 10: Contact Section
+### Phase 8: Location & Experiences Section
 
-**Step 27: Build Contact Section** - `/src/components/sections/Contact.tsx`
+**Step 23: Build Location Section** - `/src/components/sections/Location.tsx`
+
+- Embedded Google Map or static map image with pin
+- "Nearby Attractions" grid with distances
+- Icons for beach, restaurants, airport, etc.
+
+**Step 24: Add Location to Main Page** - `/src/app/page.tsx`
+
+- Import and add Location section
+- Add section ID (#location)
+- Test map display
+
+### Phase 9: Contact Section
+
+**Step 25: Build Contact Section** - `/src/components/sections/Contact.tsx`
 
 - Contact information display (email, phone, address)
 - mailto: links for email
@@ -389,13 +373,13 @@ mkdir -p src/{lib,data,hooks}
 - Optional: Simple contact card with icons
 - No form needed - guests use their email client to contact
 
-**Step 28: Add Contact to Main Page** - `/src/app/page.tsx`
+**Step 26: Add Contact to Main Page** - `/src/app/page.tsx`
 
 - Import and add Contact section
 - Add section ID (#contact)
 - Test mailto and tel links work correctly
 
-### Phase 11: Polish & Optimization
+### Phase 10: Polish & Optimization
 
 **Step 29: Enhance Layout Metadata** - `/src/app/layout.tsx`
 
@@ -445,7 +429,7 @@ mkdir -p src/{lib,data,hooks}
 - Add robots.txt and sitemap.xml
 - Test Core Web Vitals performance
 
-### Phase 12: Final Touches
+### Phase 11: Final Touches
 
 **Step 36: Add Favicon**
 
@@ -464,7 +448,7 @@ mkdir -p src/{lib,data,hooks}
 - Update CLAUDE.md with project specifics
 - Create README.md with setup instructions
 
-### Phase 13: Deployment
+### Phase 12: Deployment
 
 **Step 39: Production Build Test**
 

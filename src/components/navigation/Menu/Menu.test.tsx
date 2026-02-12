@@ -6,7 +6,7 @@ jest.mock('../navigation-utils');
 
 describe('Menu', () => {
   beforeEach(() => {
-    render(<Menu />);
+    render(<Menu isScrolled={false} />);
   });
 
   it('should render navigation element', () => {
@@ -16,11 +16,11 @@ describe('Menu', () => {
 
   it('should render all menu items', () => {
     expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Gallery')).toBeInTheDocument();
+    expect(screen.getByText('Overview')).toBeInTheDocument();
     expect(screen.getByText('Amenities')).toBeInTheDocument();
-    expect(screen.getByText('Accommodations')).toBeInTheDocument();
+    expect(screen.getByText('Gallery')).toBeInTheDocument();
+    expect(screen.getByText('Reviews')).toBeInTheDocument();
     expect(screen.getByText('Location')).toBeInTheDocument();
-    expect(screen.getByText('Testimonials')).toBeInTheDocument();
     expect(screen.getByText('Contact')).toBeInTheDocument();
   });
 
@@ -37,11 +37,11 @@ describe('Menu', () => {
   it('should render menu items in correct order', () => {
     const buttons = screen.getAllByRole('button');
     expect(buttons[0]).toHaveTextContent('Home');
-    expect(buttons[1]).toHaveTextContent('Gallery');
+    expect(buttons[1]).toHaveTextContent('Overview');
     expect(buttons[2]).toHaveTextContent('Amenities');
-    expect(buttons[3]).toHaveTextContent('Accommodations');
-    expect(buttons[4]).toHaveTextContent('Location');
-    expect(buttons[5]).toHaveTextContent('Testimonials');
+    expect(buttons[3]).toHaveTextContent('Gallery');
+    expect(buttons[4]).toHaveTextContent('Reviews');
+    expect(buttons[5]).toHaveTextContent('Location');
     expect(buttons[6]).toHaveTextContent('Contact');
   });
 });
