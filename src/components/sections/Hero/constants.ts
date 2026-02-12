@@ -10,4 +10,5 @@ export const TEST_ID = {
   HERO_CTA: 'hero-cta',
   HERO_SCROLL_INDICATOR: 'hero-scroll-indicator',
   HERO_BACKGROUND_OVERLAY: 'hero-background-overlay',
+  HERO_BACKGROUND_VIDEO: 'hero-background-video',
 };
