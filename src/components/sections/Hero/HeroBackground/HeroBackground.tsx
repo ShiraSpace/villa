@@ -6,7 +6,7 @@ export function HeroBackground(): JSX.Element {
   return (
     <>
       <Image
-        src='/images/hero/hero-1.jpg'
+        src='/images/gallery/exterior/exterior-pool.jpg'
         alt={HERO_CONTENT.IMAGE_ALT}
         fill
         priority
