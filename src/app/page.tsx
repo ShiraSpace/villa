@@ -4,6 +4,8 @@ import { JSX } from 'react';
 import { Hero } from '@/components/sections/Hero';
 import { Overview } from '@/components/sections/Overview';
 import { Details } from '@/components/sections/Details';
+import { Amenities } from '@/components/sections/Amenities';
+import { Gallery } from '@/components/sections/Gallery';
 
 export default function Home(): JSX.Element {
   return (
@@ -11,6 +13,8 @@ export default function Home(): JSX.Element {
       <Hero />
       <Overview />
       <Details />
+      <Gallery />
+      <Amenities />
     </main>
   );
 }

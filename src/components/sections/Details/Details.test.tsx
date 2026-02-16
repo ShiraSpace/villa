@@ -38,13 +38,6 @@ jest.mock('framer-motion', () => ({
   },
 }));
 
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: ({ fill, sizes, ...props }: Record<string, unknown>) => (
-    <img {...(props as React.ImgHTMLAttributes<HTMLImageElement>)} />
-  ),
-}));
-
 describe('Details', () => {
   beforeEach(() => {
     render(<Details />);
