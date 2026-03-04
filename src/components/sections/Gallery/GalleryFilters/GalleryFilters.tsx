@@ -25,13 +25,19 @@ export function GalleryFilters({
           key={category.id}
           data-testid={TEST_ID.GALLERY_FILTER_BUTTON}
           onClick={(): void => onCategoryChange(category.id)}
-          className={`px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 border ${
+          className={`relative px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap border transition-colors duration-200 ${
             activeCategory === category.id
-              ? 'bg-gold-500 text-white border-gold-500'
+              ? 'text-white border-gold-500'
               : 'bg-white text-stone-600 border-stone-200 hover:bg-stone-100'
           }`}
         >
-          {category.label}
+          {activeCategory === category.id && (
+            <motion.span
+              layoutId='activeFilter'
+              className='absolute inset-0 bg-gold-500 rounded-full'
+            />
+          )}
+          <span className='relative z-10'>{category.label}</span>
         </button>
       ))}
     </motion.div>

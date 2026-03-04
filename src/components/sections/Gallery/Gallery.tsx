@@ -1,7 +1,7 @@
 'use client';
 
 import { JSX, useState, useMemo, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TEST_ID, GALLERY_CONTENT, GalleryCategory } from './constants';
 import { containerVariants } from './animations';
 import { GalleryHeader } from './GalleryHeader';
@@ -55,7 +55,17 @@ export function Gallery(): JSX.Element {
           <GalleryHeader />
           <GalleryFilters activeCategory={activeCategory} onCategoryChange={setActiveCategory} />
         </motion.div>
-        <GalleryScroll images={filteredImages} onImageClick={handleImageClick} />
+        <AnimatePresence mode='wait'>
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+          >
+            <GalleryScroll images={filteredImages} onImageClick={handleImageClick} />
+          </motion.div>
+        </AnimatePresence>
       </div>
       <GalleryLightbox
         images={filteredImages}

@@ -1,8 +1,10 @@
 'use client';
 
 import { JSX } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { GalleryImage, TEST_ID } from '../constants';
+import { cardVariants } from '../animations';
 
 interface GalleryCardProps {
   image: GalleryImage;
@@ -11,11 +13,12 @@ interface GalleryCardProps {
 
 export function GalleryCard({ image, onClick }: GalleryCardProps): JSX.Element {
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
       data-testid={TEST_ID.GALLERY_CARD}
       onClick={onClick}
       className={`relative rounded-lg overflow-hidden cursor-pointer min-w-0 group ${
-        image.tall ? 'row-span-2 aspect-[3/4]' : 'aspect-[4/3]'
+        image.tall ? 'row-span-2' : 'aspect-[4/3]'
       }`}
     >
       <Image
@@ -26,6 +29,6 @@ export function GalleryCard({ image, onClick }: GalleryCardProps): JSX.Element {
         className='object-cover transition-transform duration-500 group-hover:scale-105'
       />
       <div className='absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20' />
-    </div>
+    </motion.div>
   );
 }

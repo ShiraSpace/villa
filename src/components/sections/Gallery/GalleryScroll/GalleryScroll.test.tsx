@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { GalleryScroll } from './GalleryScroll';
 import { TEST_ID, GALLERY_CONTENT } from '../constants';
 
+jest.mock('framer-motion');
+
 jest.mock('lucide-react', () => ({
   ChevronLeft: () => <span>ChevronLeft</span>,
   ChevronRight: () => <span>ChevronRight</span>,

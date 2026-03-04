@@ -1,9 +1,11 @@
 'use client';
 
 import { JSX, useRef, useCallback, useState, MouseEvent } from 'react';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { GalleryImage, TEST_ID } from '../constants';
 import { GalleryCard } from '../GalleryCard';
+import { gridContainerVariants } from '../animations';
 
 interface GalleryScrollProps {
   images: GalleryImage[];
@@ -53,8 +55,11 @@ export function GalleryScroll({ images, onImageClick }: GalleryScrollProps): JSX
         <ChevronLeft size={20} />
       </button>
 
-      <div
+      <motion.div
         ref={scrollRef}
+        variants={gridContainerVariants}
+        initial='hidden'
+        animate='visible'
         data-testid={TEST_ID.GALLERY_SCROLL}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -68,7 +73,7 @@ export function GalleryScroll({ images, onImageClick }: GalleryScrollProps): JSX
         {images.map((image, index) => (
           <GalleryCard key={image.src} image={image} onClick={(): void => onImageClick(index)} />
         ))}
-      </div>
+      </motion.div>
 
       <button
         data-testid={TEST_ID.GALLERY_SCROLL_RIGHT}

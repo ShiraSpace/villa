@@ -3,30 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { Gallery } from './Gallery';
 import { TEST_ID, GALLERY_CONTENT } from './constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({
-      children,
-      variants,
-      initial,
-      whileInView,
-      viewport,
-      animate,
-      exit,
-      ...props
-    }: React.HTMLAttributes<HTMLDivElement> & Record<string, unknown>) => (
-      <div {...props}>{children}</div>
-    ),
-    h2: ({
-      children,
-      variants,
-      ...props
-    }: React.HTMLAttributes<HTMLHeadingElement> & Record<string, unknown>) => (
-      <h2 {...props}>{children}</h2>
-    ),
-  },
-  AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-}));
+jest.mock('framer-motion');
 
 jest.mock('lucide-react', () => ({
   ChevronLeft: () => <span>ChevronLeft</span>,
