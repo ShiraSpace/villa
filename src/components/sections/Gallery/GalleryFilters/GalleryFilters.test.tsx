@@ -3,17 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { GalleryFilters } from './GalleryFilters';
 import { TEST_ID, GALLERY_CONTENT } from '../constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({
-      children,
-      variants,
-      ...props
-    }: React.HTMLAttributes<HTMLDivElement> & Record<string, unknown>) => (
-      <div {...props}>{children}</div>
-    ),
-  },
-}));
+jest.mock('framer-motion');
 
 describe('GalleryFilters', () => {
   const mockOnCategoryChange = jest.fn();
@@ -49,6 +39,7 @@ describe('GalleryFilters', () => {
 
   it('applies active styling to selected category', () => {
     const buttons = screen.getAllByTestId(TEST_ID.GALLERY_FILTER_BUTTON);
-    expect(buttons[0]).toHaveClass('bg-gold-500');
+    expect(buttons[0]).toHaveClass('text-white');
+    expect(buttons[0]).toHaveClass('border-gold-500');
   });
 });

@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { GalleryCard } from './GalleryCard';
 import { TEST_ID, GalleryImage } from '../constants';
 
+jest.mock('framer-motion');
+
 const regularImage: GalleryImage = {
   src: '/images/gallery/exterior/exterior-1.jpg',
   alt: 'Villa exterior view',
