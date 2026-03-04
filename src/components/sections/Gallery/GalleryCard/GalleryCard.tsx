@@ -18,7 +18,7 @@ export function GalleryCard({ image, onClick }: GalleryCardProps): JSX.Element {
       data-testid={TEST_ID.GALLERY_CARD}
       onClick={onClick}
       className={`relative rounded-lg overflow-hidden cursor-pointer min-w-0 group ${
-        image.tall ? 'row-span-2 aspect-[3/4]' : 'aspect-[4/3]'
+        image.tall ? 'row-span-2' : 'aspect-[4/3]'
       }`}
     >
       <Image

@@ -56,6 +56,6 @@ describe('GalleryCard', () => {
     render(<GalleryCard image={tallImage} onClick={mockOnClick} />);
     const card = screen.getByTestId(TEST_ID.GALLERY_CARD);
     expect(card).toHaveClass('row-span-2');
-    expect(card).toHaveClass('aspect-[3/4]');
+    expect(card).not.toHaveClass('aspect-[3/4]');
   });
 });

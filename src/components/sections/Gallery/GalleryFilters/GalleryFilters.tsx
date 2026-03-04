@@ -32,7 +32,10 @@ export function GalleryFilters({
           }`}
         >
           {activeCategory === category.id && (
-            <motion.span layoutId='activeFilter' className='absolute inset-0 bg-gold-500 rounded-full' />
+            <motion.span
+              layoutId='activeFilter'
+              className='absolute inset-0 bg-gold-500 rounded-full'
+            />
           )}
           <span className='relative z-10'>{category.label}</span>
         </button>

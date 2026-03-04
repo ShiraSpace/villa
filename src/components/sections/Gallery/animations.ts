@@ -45,7 +45,7 @@ export const cardVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.25, ease: 'easeOut' },
+    transition: { duration: 0.25 },
   },
 };
 
