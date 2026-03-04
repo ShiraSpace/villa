@@ -2,42 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { Overview } from './Overview';
 import { TEST_ID } from './constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({
-      children,
-      variants,
-      initial,
-      whileInView,
-      viewport,
-      ...props
-    }: React.HTMLAttributes<HTMLDivElement> & Record<string, unknown>) => (
-      <div {...props}>{children}</div>
-    ),
-    span: ({
-      children,
-      variants,
-      ...props
-    }: React.HTMLAttributes<HTMLSpanElement> & Record<string, unknown>) => (
-      <span {...props}>{children}</span>
-    ),
-    h2: ({
-      children,
-      variants,
-      ...props
-    }: React.HTMLAttributes<HTMLHeadingElement> & Record<string, unknown>) => (
-      <h2 {...props}>{children}</h2>
-    ),
-    p: ({
-      children,
-      variants,
-      ...props
-    }: React.HTMLAttributes<HTMLParagraphElement> & Record<string, unknown>) => (
-      <p {...props}>{children}</p>
-    ),
-  },
-}));
-
 jest.mock('next/image', () => ({
   __esModule: true,
   default: ({ fill, sizes, ...props }: Record<string, unknown>) => (

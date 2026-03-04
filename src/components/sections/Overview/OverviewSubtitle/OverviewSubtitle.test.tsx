@@ -2,14 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { OverviewSubtitle } from './OverviewSubtitle';
 import { OVERVIEW_CONTENT, TEST_ID } from '../constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    span: ({ children, ...props }: React.HTMLAttributes<HTMLSpanElement>) => (
-      <span {...props}>{children}</span>
-    ),
-  },
-}));
-
 describe('OverviewSubtitle', () => {
   beforeEach(() => {
     render(<OverviewSubtitle />);

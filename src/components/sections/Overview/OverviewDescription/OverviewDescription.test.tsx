@@ -2,14 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { OverviewDescription } from './OverviewDescription';
 import { OVERVIEW_CONTENT, TEST_ID } from '../constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-      <p {...props}>{children}</p>
-    ),
-  },
-}));
-
 describe('OverviewDescription', () => {
   beforeEach(() => {
     render(<OverviewDescription />);

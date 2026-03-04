@@ -2,12 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { HeroCTA } from './HeroCTA';
 import { HERO_CONTENT, TEST_ID } from '../constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-  },
-}));
-
 describe('HeroCTA', () => {
   beforeEach(() => {
     render(<HeroCTA />);

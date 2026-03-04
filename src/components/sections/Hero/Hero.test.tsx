@@ -2,14 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { Hero } from './Hero';
 import { TEST_ID } from './constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
-    h1: ({ children, ...props }: any) => <h1 {...props}>{children}</h1>,
-    p: ({ children, ...props }: any) => <p {...props}>{children}</p>,
-  },
-}));
-
 describe('Hero', () => {
   beforeEach(() => {
     render(<Hero />);
