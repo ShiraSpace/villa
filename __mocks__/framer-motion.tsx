@@ -8,6 +8,7 @@ const FRAMER_PROPS = new Set([
   'whileInView',
   'viewport',
   'transition',
+  'layoutId',
 ]);
 
 type MotionProps = {
@@ -34,3 +35,7 @@ export const motion = {
   p: createMotionComponent('p'),
   span: createMotionComponent('span'),
 };
+
+export function AnimatePresence({ children }: { children: React.ReactNode }): React.ReactElement {
+  return React.createElement(React.Fragment, null, children);
+}

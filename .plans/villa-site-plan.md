@@ -261,23 +261,59 @@ mkdir -p src/{lib,data,hooks}
 
 ### Phase 5: Amenities Section
 
-**Step 14: Create Amenities Data** - `/src/data/amenities.ts`
+**Design**: Compact, elegant flat icon grid — no categories, no card borders. Mockup at `mockups/amenities-mockup.html`.
 
-- Array of amenities with categories (Kitchen, Outdoor, Entertainment, Services)
-- Icons mapping
+**Component Structure**:
+```
+src/components/sections/Amenities/
+├── Amenities.tsx              # Orchestrator
+├── Amenities.test.tsx         # Integration test
+├── index.ts                   # Named export
+├── animations.ts              # Framer Motion variants
+├── constants.ts               # AMENITIES_CONTENT + TEST_ID
+├── AmenitiesHeader/           # Subtitle + two-tone title
+│   ├── AmenitiesHeader.tsx
+│   ├── AmenitiesHeader.test.tsx
+│   └── index.ts
+├── AmenitiesGrid/             # Flat grid of all amenity items
+│   ├── AmenitiesGrid.tsx
+│   ├── AmenitiesGrid.test.tsx
+│   └── index.ts
+└── AmenityItem/               # Single icon + label
+    ├── AmenityItem.tsx
+    ├── AmenityItem.test.tsx
+    └── index.ts
+```
 
-**Step 15: Build Amenities Section** - `/src/components/sections/Amenities.tsx`
+**Visual Design**:
+- Background: `bg-stone-50`, Container: `max-w-5xl`
+- Header: Gold subtitle "Amenities" + two-tone title: "Designed for" (stone-900) + "Comfortable Living" (gold-500 #D4984D)
+- Grid: `grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6`, `gap-y-8 gap-x-4`
+- Each item: icon (28px, stroke 1.5, gold) + label (stone-600, text-xs/sm), hover turns gold
+- No cards, no borders — minimal and elegant
 
-- Grid of amenity cards with Lucide icons
-- Grouped by category
-- Hover effects on cards
-- Scroll animations
+**Step 14: Create amenities-draft.md for user to edit**
+
+- Create template file with example amenities in `- Name | LucideIconName` format
+- User fills in actual amenities before coding starts
+- All content stored in `constants.ts` (no separate data file)
+
+**Step 15: Build Amenities Section** - `/src/components/sections/Amenities/`
+
+- Build constants.ts (AMENITIES_CONTENT with SUBTITLE, TITLE, TITLE_ACCENT, AMENITIES array + TEST_ID)
+- Build animations.ts (containerVariants with stagger, itemVariants with fade+slide)
+- Build AmenityItem (icon from lucide-react via iconMap + label, hover effect)
+- Build AmenitiesGrid (maps AMENITIES_CONTENT.AMENITIES → AmenityItem, motion.div with stagger)
+- Build AmenitiesHeader (gold subtitle + two-tone title with span for accent)
+- Build Amenities orchestrator (section with id="amenities", bg-stone-50, section-padding)
+- Add tests for all components (mock framer-motion + lucide-react)
 
 **Step 16: Add Amenities to Main Page** - `/src/app/page.tsx`
 
-- Import and add Amenities section
+- Import Amenities, place after `<Details />`
 - Add section ID (#amenities)
-- Test responsive grid
+- Run full test suite, lint, build
+- Clean up: delete amenities-draft.md and mockup
 
 ### Phase 6: Gallery Section
 

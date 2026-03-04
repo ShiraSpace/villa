@@ -1,0 +1,1 @@
+export { AmenitiesGrid } from './AmenitiesGrid';

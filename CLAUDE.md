@@ -64,6 +64,7 @@ npm run build
 3. **Return Types**: Add explicit return types to ALL functions
 4. **Comments**: Do not add comments to code
 5. **Component Composition**: Extract to small, focused components when needed
+6. **ESLint Rules**: Never modify ESLint configuration to suppress warnings or errors — always fix the code itself
 
 ### TypeScript
 
@@ -79,6 +80,7 @@ npm run build
 - Place `render()` in `beforeEach` block
 - Use `getByTestId` for element queries
 - Mock dependencies appropriately
+- Use centralized mocks in `__mocks__/` directory for shared module mocks (e.g., `__mocks__/next/image.tsx`) — do not duplicate `jest.mock()` calls across test files
 
 ### Code Formatting
 
