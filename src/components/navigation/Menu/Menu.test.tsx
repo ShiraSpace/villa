@@ -6,7 +6,7 @@ jest.mock('../navigation-utils');
 
 describe('Menu', () => {
   beforeEach(() => {
-    render(<Menu />);
+    render(<Menu isScrolled={false} />);
   });
 
   it('should render navigation element', () => {
