@@ -2,18 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { DetailsFact } from './DetailsFact';
 import { TEST_ID } from '../constants';
 
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({
-      children,
-      variants,
-      ...props
-    }: React.HTMLAttributes<HTMLDivElement> & Record<string, unknown>) => (
-      <div {...props}>{children}</div>
-    ),
-  },
-}));
-
 const mockFact = {
   title: 'Test Title',
   description: 'Test description text',

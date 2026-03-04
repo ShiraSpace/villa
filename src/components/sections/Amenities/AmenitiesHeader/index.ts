@@ -1,0 +1,1 @@
+export { AmenitiesHeader } from './AmenitiesHeader';
