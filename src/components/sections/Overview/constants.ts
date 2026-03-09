@@ -9,7 +9,7 @@ export const OVERVIEW_CONTENT = {
       alt: 'Villa exterior with comfortable sofa',
     },
     {
-      src: '/images/gallery/exterior/pool-side.jpg',
+      src: '/images/gallery/exterior/balcony-and-pool-side.jpg',
       alt: 'Large and private pool',
     },
     {

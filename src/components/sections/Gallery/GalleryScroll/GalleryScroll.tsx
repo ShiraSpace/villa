@@ -48,7 +48,7 @@ export function GalleryScroll({ images, onImageClick }: GalleryScrollProps): JSX
     <div className='relative'>
       <button
         data-testid={TEST_ID.GALLERY_SCROLL_LEFT}
-        onClick={(): void => scroll(-400)}
+        onClick={(): void => scroll(-900)}
         className='absolute left-[-1.25rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-stone-200 shadow-md flex items-center justify-center text-stone-600 hover:bg-stone-50 hover:shadow-lg hover:text-stone-900 transition-all duration-200 hidden md:flex'
         aria-label='Scroll left'
       >
@@ -77,7 +77,7 @@ export function GalleryScroll({ images, onImageClick }: GalleryScrollProps): JSX
 
       <button
         data-testid={TEST_ID.GALLERY_SCROLL_RIGHT}
-        onClick={(): void => scroll(400)}
+        onClick={(): void => scroll(900)}
         className='absolute right-[-1.25rem] top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-stone-200 shadow-md flex items-center justify-center text-stone-600 hover:bg-stone-50 hover:shadow-lg hover:text-stone-900 transition-all duration-200 hidden md:flex'
         aria-label='Scroll right'
       >
