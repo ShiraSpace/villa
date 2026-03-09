@@ -24,7 +24,7 @@ export const GALLERY_CONTENT = {
   IMAGES: [
     {
       src: '/images/gallery/garden/garden-vertical.jpg',
-      alt: 'Villa entrance',
+      alt: 'Villa garden',
       category: 'exterior',
       tall: true,
     },
@@ -36,13 +36,13 @@ export const GALLERY_CONTENT = {
     },
     {
       src: '/images/gallery/interior/entrance-door-vertical.jpg',
-      alt: 'Living room sofa',
+      alt: 'Welcome entrance',
       category: 'interior',
       tall: true,
     },
     {
       src: '/images/gallery/guests-bedroom/guests-bedroom-vertical.jpg',
-      alt: 'Master bedroom',
+      alt: 'Guest bedroom',
       category: 'bedrooms',
       tall: true,
     },
@@ -93,7 +93,7 @@ export const GALLERY_CONTENT = {
     },
     {
       src: '/images/gallery/master-bedroom/bedroom-1.jpg',
-      alt: 'Bedroom',
+      alt: 'Master bedroom',
       category: 'bedrooms',
     },
     {
@@ -103,7 +103,7 @@ export const GALLERY_CONTENT = {
     },
     {
       src: '/images/gallery/exterior/balcony-master-side.jpg',
-      alt: 'Master bedroom balcony ',
+      alt: 'Master bedroom balcony',
       category: 'pool-views',
     },
     {
@@ -163,7 +163,7 @@ export const GALLERY_CONTENT = {
     },
     {
       src: '/images/gallery/exterior/exterior-side-garden.jpg',
-      alt: 'Garden gate',
+      alt: 'Villa garden side',
       category: 'pool-views',
     },
     {
