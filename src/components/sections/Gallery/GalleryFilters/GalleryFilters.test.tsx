@@ -34,7 +34,7 @@ describe('GalleryFilters', () => {
     const buttons = screen.getAllByTestId(TEST_ID.GALLERY_FILTER_BUTTON);
 
     await user.click(buttons[1]);
-    expect(mockOnCategoryChange).toHaveBeenCalledWith('exterior');
+    expect(mockOnCategoryChange).toHaveBeenCalledWith(GALLERY_CONTENT.CATEGORIES[1].id);
   });
 
   it('applies active styling to selected category', () => {
