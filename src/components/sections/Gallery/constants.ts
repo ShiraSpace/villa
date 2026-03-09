@@ -103,7 +103,7 @@ export const GALLERY_CONTENT = {
     },
     {
       src: '/images/gallery/exterior/balcony-master-side.jpg',
-      alt: 'Master bedroom balcony ',
+      alt: 'Master bedroom balcony',
       category: 'pool-views',
     },
     {
