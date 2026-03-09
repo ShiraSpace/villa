@@ -57,11 +57,11 @@ The plan is organized into **40 incremental steps** across 13 phases. Each step 
 
 - Details component with villa facts, add to main page
 
-**Phase 5: Amenities Section** (Steps 14-16)
+le**Phase 5: Amenities Section** (Steps 14-16) ✅
 
 - Amenities data, Amenities component, add to main page
 
-**Phase 6: Gallery Section** (Steps 17-19)
+**Phase 6: Gallery Section** (Steps 17-19) ✅
 
 - Gallery data, Gallery component with lightbox, add to main page
 
@@ -216,8 +216,8 @@ mkdir -p src/{lib,data,hooks}
 - Supporting components:
   - `/src/components/ui/Button/` - Link button for smooth scrolling (href only, no onClick)
   - `/src/data/villa.ts` - Villa data with TypeScript interface
-- **Tests**: Complete test coverage
-  **Status**: Complete with Framer Motion animations, refactored into focused components, full test coverage
+- **Tests**: Complete test coverage (including HeroBackground video attribute tests: autoPlay, muted, loop, playsInline, source src/type)
+  **Status**: ✅ Complete with Framer Motion animations, refactored into focused components, full test coverage
 
 **Step 11: Update Main Page with Hero** ✅ - `/src/app/page.tsx`
 
@@ -287,84 +287,37 @@ mkdir -p src/{lib,data,hooks}
 - Added to main page with section ID (#details)
   **Status**: ✅ COMPLETE - Implementation done, tests written and passing (24 tests), awaiting test commit
 
-### Phase 5: Amenities Section
+### Phase 5: Amenities Section ✅ COMPLETED
 
-**Design**: Compact, elegant flat icon grid — no categories, no card borders. Mockup at `mockups/amenities-mockup.html`.
+**Step 14-15: Build Amenities Section** ✅ - `/src/components/sections/Amenities/`
 
-**Component Structure**:
-```
-src/components/sections/Amenities/
-├── Amenities.tsx              # Orchestrator
-├── Amenities.test.tsx         # Integration test
-├── index.ts                   # Named export
-├── animations.ts              # Framer Motion variants
-├── constants.ts               # AMENITIES_CONTENT + TEST_ID
-├── AmenitiesHeader/           # Subtitle + two-tone title
-│   ├── AmenitiesHeader.tsx
-│   ├── AmenitiesHeader.test.tsx
-│   └── index.ts
-├── AmenitiesGrid/             # Flat grid of all amenity items
-│   ├── AmenitiesGrid.tsx
-│   ├── AmenitiesGrid.test.tsx
-│   └── index.ts
-└── AmenityItem/               # Single icon + label
-    ├── AmenityItem.tsx
-    ├── AmenityItem.test.tsx
-    └── index.ts
-```
-
-**Visual Design**:
+- Compact flat icon grid (no categories, no card borders)
 - Background: `bg-stone-50`, Container: `max-w-5xl`
-- Header: Gold subtitle "Amenities" + two-tone title: "Designed for" (stone-900) + "Comfortable Living" (gold-500 #D4984D)
-- Grid: `grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6`, `gap-y-8 gap-x-4`
-- Each item: icon (28px, stroke 1.5, gold) + label (stone-600, text-xs/sm), hover turns gold
-- No cards, no borders — minimal and elegant
+- Gold subtitle + two-tone title
+- Icon grid with lucide-react, hover effects
+- Component structure: `Amenities.tsx`, `AmenitiesHeader/`, `AmenitiesGrid/`, `AmenityItem/`
+- **Tests**: ⚠️ MISSING — no test files exist yet for Amenities
 
-**Step 14: Create amenities-draft.md for user to edit**
+**Step 16: Add Amenities to Main Page** ✅ - `/src/app/page.tsx`
 
-- Create template file with example amenities in `- Name | LucideIconName` format
-- User fills in actual amenities before coding starts
-- All content stored in `constants.ts` (no separate data file)
+- Amenities imported and rendered (after Gallery currently)
+  **Status**: ✅ Implementation complete, ⚠️ Tests not yet written
 
-**Step 15: Build Amenities Section** - `/src/components/sections/Amenities/`
+### Phase 6: Gallery Section ✅ COMPLETED
 
-- Build constants.ts (AMENITIES_CONTENT with SUBTITLE, TITLE, TITLE_ACCENT, AMENITIES array + TEST_ID)
-- Build animations.ts (containerVariants with stagger, itemVariants with fade+slide)
-- Build AmenityItem (icon from lucide-react via iconMap + label, hover effect)
-- Build AmenitiesGrid (maps AMENITIES_CONTENT.AMENITIES → AmenityItem, motion.div with stagger)
-- Build AmenitiesHeader (gold subtitle + two-tone title with span for accent)
-- Build Amenities orchestrator (section with id="amenities", bg-stone-50, section-padding)
-- Add tests for all components (mock framer-motion + lucide-react)
+**Step 17-18: Build Gallery Section** ✅ - `/src/components/sections/Gallery/`
 
-**Step 16: Add Amenities to Main Page** - `/src/app/page.tsx`
+- Horizontal scroll layout with category filters
+- Lightbox for full-screen image viewing
+- Component structure: `Gallery.tsx`, `GalleryHeader/`, `GalleryFilters/`, `GalleryScroll/`, `GalleryCard/`, `GalleryLightbox/`
+- Images organized in `public/images/gallery/` by category: exterior/, interior/, garden/, bedrooms/, master-bedroom/, guests-bedroom/, entrance/, kids-room/
+- New images recently added (entrance, exterior variants, interior bathrooms, kitchen, living room, master-bedroom, guests-bedroom)
+- **Tests**: ✅ Test files exist for all subcomponents
 
-- Import Amenities, place after `<Details />`
-- Add section ID (#amenities)
-- Run full test suite, lint, build
-- Clean up: delete amenities-draft.md and mockup
+**Step 19: Add Gallery to Main Page** ✅ - `/src/app/page.tsx`
 
-### Phase 6: Gallery Section
-
-**Step 17: Create Gallery Data** - `/src/data/gallery.ts`
-
-- Image metadata (paths, categories, alt text)
-- Category definitions
-
-**Step 18: Build Gallery Section** - `/src/components/sections/Gallery.tsx`
-
-- Responsive grid layout (1 col mobile, 2 col tablet, 3-4 col desktop)
-- Next.js Image with blur placeholders
-- Category filter buttons
-- Click to open lightbox
-- Create supporting components:
-  - `/src/components/ui/Modal.tsx` (lightbox)
-  - `/src/components/ui/ImageWithPlaceholder.tsx` (optimized images)
-
-**Step 19: Add Gallery to Main Page** - `/src/app/page.tsx`
-
-- Import and add Gallery section
-- Add section ID (#gallery)
-- Test lightbox functionality
+- Gallery imported and rendered (before Amenities currently)
+  **Status**: ✅ Complete with tests
 
 ### Phase 7: Reviews Section
 
