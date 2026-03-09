@@ -5,11 +5,11 @@ import { TEST_ID } from '@/components/navigation/constants';
 
 const menuItems: MenuItem[] = [
   { label: 'Home', href: '#hero' },
-  { label: 'Gallery', href: '#gallery' },
+  { label: 'Overview', href: '#overview' },
   { label: 'Amenities', href: '#amenities' },
-  { label: 'Accommodations', href: '#accommodations' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Reviews', href: '#reviews' },
   { label: 'Location', href: '#location' },
-  { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];
 

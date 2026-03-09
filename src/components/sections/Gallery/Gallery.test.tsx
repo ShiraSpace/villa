@@ -49,13 +49,14 @@ describe('Gallery', () => {
   it('filters images when category is clicked', async () => {
     const user = userEvent.setup();
     const filterButtons = screen.getAllByTestId(TEST_ID.GALLERY_FILTER_BUTTON);
-    const exteriorButton = filterButtons[1];
+    const categoryIndex = 1;
+    const clickedCategory = GALLERY_CONTENT.CATEGORIES[categoryIndex].id;
 
-    await user.click(exteriorButton);
+    await user.click(filterButtons[categoryIndex]);
 
     const cards = screen.getAllByTestId(TEST_ID.GALLERY_CARD);
-    const exteriorImages = GALLERY_CONTENT.IMAGES.filter((img) => img.category === 'exterior');
-    expect(cards).toHaveLength(exteriorImages.length);
+    const filteredImages = GALLERY_CONTENT.IMAGES.filter((img) => img.category === clickedCategory);
+    expect(cards).toHaveLength(filteredImages.length);
   });
 
   it('shows all images when All filter is clicked', async () => {

@@ -2,13 +2,6 @@ import { render, screen } from '@testing-library/react';
 import { Overview } from './Overview';
 import { TEST_ID } from './constants';
 
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: ({ fill, sizes, ...props }: Record<string, unknown>) => (
-    <img {...(props as React.ImgHTMLAttributes<HTMLImageElement>)} />
-  ),
-}));
-
 describe('Overview', () => {
   beforeEach(() => {
     render(<Overview />);

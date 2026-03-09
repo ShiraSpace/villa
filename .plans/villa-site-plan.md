@@ -12,7 +12,8 @@ A one-page scrolling layout provides the best experience for showcasing a single
 
 **Page Structure:**
 
-- `/` - Main landing page with sections: Hero → Overview → Gallery → Amenities → Accommodations → Location → Testimonials → Contact
+- `/` - Main landing page with sections: Hero (with video) → Overview → Details → Amenities → Gallery → Reviews → Location → Contact
+- **Navigation**: Home · Overview · Amenities · Gallery · Reviews · Location · Contact
 
 ## Implementation Overview
 
@@ -36,55 +37,56 @@ The plan is organized into **40 incremental steps** across 13 phases. Each step 
 
 ### Step-by-Step Progression:
 
-**Phase 1: Foundation** (Steps 1-5)
+**Phase 1: Foundation** (Steps 1-5) ✅
 
 - Install dependencies, configure Tailwind, setup styles, download images, create folders
 
 **Phase 2: Navigation** (Steps 6-8)
 
-- Header, Mobile Menu, Footer
+- Header ✅, Mobile Menu, Footer
 
-**Phase 3: Hero Section** (Steps 9-11)
+**Phase 3: Hero Section** (Steps 9-11) ✅
 
-- Villa data, Hero component, integrate into main page
+- Villa data, Hero component (with video support), integrate into main page
 
-**Phase 4: Overview Section** (Steps 12-13)
+**Phase 4: Overview Section** (Steps 12-13) ✅
 
 - Overview component, add to main page
 
-**Phase 5: Amenities Section** (Steps 14-16)
+**Phase 4.5: Details Section** (Step 13.5) ✅
+
+- Details component with villa facts, add to main page
+
+le**Phase 5: Amenities Section** (Steps 14-16) ✅
 
 - Amenities data, Amenities component, add to main page
 
-**Phase 6: Gallery Section** (Steps 17-19)
+**Phase 6: Gallery Section** (Steps 17-19) ✅
 
 - Gallery data, Gallery component with lightbox, add to main page
 
-**Phase 7: Accommodations Section** (Steps 20-21)
+**Phase 7: Reviews Section** (Steps 20-22)
 
-- Accommodations component, add to main page
+- Reviews data, Reviews carousel/cards, add to main page
 
-**Phase 8: Location Section** (Steps 22-23)
+**Phase 8: Location & Experiences Section** (Steps 23-24)
 
-- Location component with map, add to main page
+- Location component with map, nearby attractions, activities, add to main page
 
-**Phase 9: Testimonials Section** (Steps 24-26)
 
-- Testimonials data, Testimonials carousel, add to main page
+**Phase 9: Contact Section** (Steps 25-26)
 
-**Phase 10: Contact Section** (Steps 27-28)
+- Contact info with mailto/tel links, add to main page
 
-- Contact form component with validation, add to main page
-
-**Phase 11: Polish & Optimization** (Steps 29-35)
+**Phase 10: Polish & Optimization** (Steps 27-33)
 
 - Metadata, scroll effects, image optimization, mobile testing, accessibility, performance, SEO
 
-**Phase 12: Final Touches** (Steps 36-38)
+**Phase 11: Final Touches** (Steps 34-36)
 
 - Favicon, cross-browser testing, documentation
 
-**Phase 13: Deployment** (Steps 39-40)
+**Phase 12: Deployment** (Steps 37-38)
 
 - Production build, deploy to Vercel
 
@@ -214,8 +216,8 @@ mkdir -p src/{lib,data,hooks}
 - Supporting components:
   - `/src/components/ui/Button/` - Link button for smooth scrolling (href only, no onClick)
   - `/src/data/villa.ts` - Villa data with TypeScript interface
-- **Tests**: Complete test coverage
-  **Status**: Complete with Framer Motion animations, refactored into focused components, full test coverage
+- **Tests**: Complete test coverage (including HeroBackground video attribute tests: autoPlay, muted, loop, playsInline, source src/type)
+  **Status**: ✅ Complete with Framer Motion animations, refactored into focused components, full test coverage
 
 **Step 11: Update Main Page with Hero** ✅ - `/src/app/page.tsx`
 
@@ -259,135 +261,100 @@ mkdir -p src/{lib,data,hooks}
 - All tests passing (21 Overview tests + 68 total)
   **Status**: Complete and visually verified
 
-### Phase 5: Amenities Section
+### Phase 4.5: Details Section ✅ COMPLETED
 
-**Design**: Compact, elegant flat icon grid — no categories, no card borders. Mockup at `mockups/amenities-mockup.html`.
+**Step 13.5: Build Details Section** ✅ - `/src/components/sections/Details/`
 
-**Component Structure**:
-```
-src/components/sections/Amenities/
-├── Amenities.tsx              # Orchestrator
-├── Amenities.test.tsx         # Integration test
-├── index.ts                   # Named export
-├── animations.ts              # Framer Motion variants
-├── constants.ts               # AMENITIES_CONTENT + TEST_ID
-├── AmenitiesHeader/           # Subtitle + two-tone title
-│   ├── AmenitiesHeader.tsx
-│   ├── AmenitiesHeader.test.tsx
-│   └── index.ts
-├── AmenitiesGrid/             # Flat grid of all amenity items
-│   ├── AmenitiesGrid.tsx
-│   ├── AmenitiesGrid.test.tsx
-│   └── index.ts
-└── AmenityItem/               # Single icon + label
-    ├── AmenityItem.tsx
-    ├── AmenityItem.test.tsx
-    └── index.ts
-```
+- Two-column layout: image (left) + facts grid (right)
+- Subtitle with gold accent ("At a Glance")
+- Title with serif bold font ("Our House")
+- 6 villa fact cards in a 2-column grid with hover effects
+- Framer Motion scroll-triggered animations with stagger
+- Component structure (following Overview pattern):
+  - `Details.tsx` - Orchestrator component
+  - `DetailsHeader/` - Subtitle and title
+  - `DetailsImage/` - Featured villa image
+  - `DetailsGrid/` - 2x3 grid of fact cards
+  - `DetailsFact/` - Individual fact card with title and description
+  - `animations.ts` - Shared Framer Motion variants
+  - `constants.ts` - Test IDs and content (DETAILS_CONTENT, TEST_ID)
+- **Tests**: Complete test coverage (24 tests)
+  - Details.test.tsx - Tests section composition (8 tests)
+  - DetailsHeader.test.tsx - Tests subtitle and title rendering (4 tests)
+  - DetailsImage.test.tsx - Tests image src and alt (3 tests)
+  - DetailsGrid.test.tsx - Tests facts grid rendering (5 tests)
+  - DetailsFact.test.tsx - Tests individual fact card (4 tests)
+- Added to main page with section ID (#details)
+  **Status**: ✅ COMPLETE - Implementation done, tests written and passing (24 tests), awaiting test commit
 
-**Visual Design**:
+### Phase 5: Amenities Section ✅ COMPLETED
+
+**Step 14-15: Build Amenities Section** ✅ - `/src/components/sections/Amenities/`
+
+- Compact flat icon grid (no categories, no card borders)
 - Background: `bg-stone-50`, Container: `max-w-5xl`
-- Header: Gold subtitle "Amenities" + two-tone title: "Designed for" (stone-900) + "Comfortable Living" (gold-500 #D4984D)
-- Grid: `grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6`, `gap-y-8 gap-x-4`
-- Each item: icon (28px, stroke 1.5, gold) + label (stone-600, text-xs/sm), hover turns gold
-- No cards, no borders — minimal and elegant
+- Gold subtitle + two-tone title
+- Icon grid with lucide-react, hover effects
+- Component structure: `Amenities.tsx`, `AmenitiesHeader/`, `AmenitiesGrid/`, `AmenityItem/`
+- **Tests**: ⚠️ MISSING — no test files exist yet for Amenities
 
-**Step 14: Create amenities-draft.md for user to edit**
+**Step 16: Add Amenities to Main Page** ✅ - `/src/app/page.tsx`
 
-- Create template file with example amenities in `- Name | LucideIconName` format
-- User fills in actual amenities before coding starts
-- All content stored in `constants.ts` (no separate data file)
+- Amenities imported and rendered (after Gallery currently)
+  **Status**: ✅ Implementation complete, ⚠️ Tests not yet written
 
-**Step 15: Build Amenities Section** - `/src/components/sections/Amenities/`
+### Phase 6: Gallery Section ✅ COMPLETED
 
-- Build constants.ts (AMENITIES_CONTENT with SUBTITLE, TITLE, TITLE_ACCENT, AMENITIES array + TEST_ID)
-- Build animations.ts (containerVariants with stagger, itemVariants with fade+slide)
-- Build AmenityItem (icon from lucide-react via iconMap + label, hover effect)
-- Build AmenitiesGrid (maps AMENITIES_CONTENT.AMENITIES → AmenityItem, motion.div with stagger)
-- Build AmenitiesHeader (gold subtitle + two-tone title with span for accent)
-- Build Amenities orchestrator (section with id="amenities", bg-stone-50, section-padding)
-- Add tests for all components (mock framer-motion + lucide-react)
+**Step 17-18: Build Gallery Section** ✅ - `/src/components/sections/Gallery/`
 
-**Step 16: Add Amenities to Main Page** - `/src/app/page.tsx`
+- Horizontal scroll layout with category filters
+- Lightbox for full-screen image viewing
+- Component structure: `Gallery.tsx`, `GalleryHeader/`, `GalleryFilters/`, `GalleryScroll/`, `GalleryCard/`, `GalleryLightbox/`
+- Images organized in `public/images/gallery/` by category: exterior/, interior/, garden/, bedrooms/, master-bedroom/, guests-bedroom/, entrance/, kids-room/
+- New images recently added (entrance, exterior variants, interior bathrooms, kitchen, living room, master-bedroom, guests-bedroom)
+- **Tests**: ✅ Test files exist for all subcomponents
 
-- Import Amenities, place after `<Details />`
-- Add section ID (#amenities)
-- Run full test suite, lint, build
-- Clean up: delete amenities-draft.md and mockup
+**Step 19: Add Gallery to Main Page** ✅ - `/src/app/page.tsx`
 
-### Phase 6: Gallery Section
+- Gallery imported and rendered (before Amenities currently)
+  **Status**: ✅ Complete with tests
 
-**Step 17: Create Gallery Data** - `/src/data/gallery.ts`
+### Phase 7: Reviews Section
 
-- Image metadata (paths, categories, alt text)
-- Category definitions
-
-**Step 18: Build Gallery Section** - `/src/components/sections/Gallery.tsx`
-
-- Responsive grid layout (1 col mobile, 2 col tablet, 3-4 col desktop)
-- Next.js Image with blur placeholders
-- Category filter buttons
-- Click to open lightbox
-- Create supporting components:
-  - `/src/components/ui/Modal.tsx` (lightbox)
-  - `/src/components/ui/ImageWithPlaceholder.tsx` (optimized images)
-
-**Step 19: Add Gallery to Main Page** - `/src/app/page.tsx`
-
-- Import and add Gallery section
-- Add section ID (#gallery)
-- Test lightbox functionality
-
-### Phase 7: Accommodations Section
-
-**Step 20: Build Accommodations Section** - `/src/components/sections/Accommodations.tsx`
-
-- Room-by-room breakdown (Master Suite, Guest Bedrooms, etc.)
-- Each room card with image, title, description, features list
-- Alternating layout pattern (image left/right)
-
-**Step 21: Add Accommodations to Main Page** - `/src/app/page.tsx`
-
-- Import and add Accommodations section
-- Add section ID (#accommodations)
-- Test alternating layout
-
-### Phase 8: Location Section
-
-**Step 22: Build Location Section** - `/src/components/sections/Location.tsx`
-
-- Embedded Google Map or static map image with pin
-- "Nearby Attractions" grid with distances
-- Icons for beach, restaurants, airport, etc.
-
-**Step 23: Add Location to Main Page** - `/src/app/page.tsx`
-
-- Import and add Location section
-- Add section ID (#location)
-- Test map display
-
-### Phase 9: Testimonials Section
-
-**Step 24: Create Testimonials Data** - `/src/data/testimonials.ts`
+**Step 20: Create Reviews Data** - `/src/data/reviews.ts`
 
 - Guest reviews with names, ratings, comments
 
-**Step 25: Build Testimonials Section** - `/src/components/sections/Testimonials.tsx`
+**Step 21: Build Reviews Section** - `/src/components/sections/Reviews.tsx`
 
 - Carousel of guest reviews using Framer Motion
 - Star ratings (Lucide icons)
 - Guest name, date, review text
 - Auto-play with manual controls
 
-**Step 26: Add Testimonials to Main Page** - `/src/app/page.tsx`
+**Step 22: Add Reviews to Main Page** - `/src/app/page.tsx`
 
-- Import and add Testimonials section
-- Add section ID (#testimonials)
+- Import and add Reviews section
+- Add section ID (#reviews)
 - Test carousel functionality
 
-### Phase 10: Contact Section
+### Phase 8: Location & Experiences Section
 
-**Step 27: Build Contact Section** - `/src/components/sections/Contact.tsx`
+**Step 23: Build Location Section** - `/src/components/sections/Location.tsx`
+
+- Embedded Google Map or static map image with pin
+- "Nearby Attractions" grid with distances
+- Icons for beach, restaurants, airport, etc.
+
+**Step 24: Add Location to Main Page** - `/src/app/page.tsx`
+
+- Import and add Location section
+- Add section ID (#location)
+- Test map display
+
+### Phase 9: Contact Section
+
+**Step 25: Build Contact Section** - `/src/components/sections/Contact.tsx`
 
 - Contact information display (email, phone, address)
 - mailto: links for email
@@ -395,13 +362,13 @@ src/components/sections/Amenities/
 - Optional: Simple contact card with icons
 - No form needed - guests use their email client to contact
 
-**Step 28: Add Contact to Main Page** - `/src/app/page.tsx`
+**Step 26: Add Contact to Main Page** - `/src/app/page.tsx`
 
 - Import and add Contact section
 - Add section ID (#contact)
 - Test mailto and tel links work correctly
 
-### Phase 11: Polish & Optimization
+### Phase 10: Polish & Optimization
 
 **Step 29: Enhance Layout Metadata** - `/src/app/layout.tsx`
 
@@ -451,7 +418,7 @@ src/components/sections/Amenities/
 - Add robots.txt and sitemap.xml
 - Test Core Web Vitals performance
 
-### Phase 12: Final Touches
+### Phase 11: Final Touches
 
 **Step 36: Add Favicon**
 
@@ -470,7 +437,7 @@ src/components/sections/Amenities/
 - Update CLAUDE.md with project specifics
 - Create README.md with setup instructions
 
-### Phase 13: Deployment
+### Phase 12: Deployment
 
 **Step 39: Production Build Test**
 

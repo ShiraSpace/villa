@@ -56,7 +56,7 @@ describe('GalleryScroll', () => {
     const leftBtn = screen.getByTestId(TEST_ID.GALLERY_SCROLL_LEFT);
     await user.click(leftBtn);
 
-    expect(scrollBySpy).toHaveBeenCalledWith({ left: -400, behavior: 'smooth' });
+    expect(scrollBySpy).toHaveBeenCalledWith({ left: -900, behavior: 'smooth' });
   });
 
   it('scrolls right when right button is clicked', async () => {
@@ -68,6 +68,6 @@ describe('GalleryScroll', () => {
     const rightBtn = screen.getByTestId(TEST_ID.GALLERY_SCROLL_RIGHT);
     await user.click(rightBtn);
 
-    expect(scrollBySpy).toHaveBeenCalledWith({ left: 400, behavior: 'smooth' });
+    expect(scrollBySpy).toHaveBeenCalledWith({ left: 900, behavior: 'smooth' });
   });
 });

@@ -26,6 +26,7 @@ export function GalleryCard({ image, onClick }: GalleryCardProps): JSX.Element {
         alt={image.alt}
         fill
         sizes='280px'
+        loading='eager'
         className='object-cover transition-transform duration-500 group-hover:scale-105'
       />
       <div className='absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20' />
