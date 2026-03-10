@@ -10,6 +10,9 @@ export interface VillaData {
   contact: {
     email: string;
     phone: string;
+    whatsapp: string;
+    whatsappDisplay: string;
+    bookingUrl: string;
   };
 }
 
@@ -24,7 +27,10 @@ export const villaData: VillaData = {
     bathrooms: 2,
   },
   contact: {
-    email: 'info@santisukh-villa.com',
+    email: 'happiness.house.phangan@gmail.com',
     phone: '+66-555-VILLA-01',
+    whatsapp: '+66803685331',
+    whatsappDisplay: '+66 803 685 331',
+    bookingUrl: 'https://www.airbnb.com/rooms/1588287133937803664',
   },
 };
