@@ -4,7 +4,7 @@ import { JSX } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, MessageCircle, Mail } from 'lucide-react';
 import { villaData } from '@/data/villa';
-import { TEST_ID, CONTACT_CONTENT } from './constants';
+import { TEST_ID, CONTACT_CONTENT, EXTERNAL_LINK_REL, PAGE_CLASS_NAMES } from './constants';
 
 const containerVariants = {
   hidden: {},
@@ -22,22 +22,16 @@ export function Contact(): JSX.Element {
   const { contact } = villaData;
 
   return (
-    <section id='contact' data-testid={TEST_ID.section} className='section-padding bg-white'>
-      <div className='max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='text-center mb-12'>
-          <p
-            data-testid={TEST_ID.subtitle}
-            className='mb-3 font-sans text-sm font-semibold uppercase tracking-widest text-gold-600'
-          >
+    <section id='contact' data-testid={TEST_ID.section} className={PAGE_CLASS_NAMES.section}>
+      <div className={PAGE_CLASS_NAMES.container}>
+        <div className={PAGE_CLASS_NAMES.header}>
+          <p data-testid={TEST_ID.subtitle} className={PAGE_CLASS_NAMES.subtitle}>
             {CONTACT_CONTENT.subtitle}
           </p>
-          <h2
-            data-testid={TEST_ID.title}
-            className='mb-4 font-serif text-3xl font-bold text-stone-900 md:text-4xl'
-          >
+          <h2 data-testid={TEST_ID.title} className={PAGE_CLASS_NAMES.title}>
             {CONTACT_CONTENT.title}
           </h2>
-          <p className='text-stone-500 max-w-xl mx-auto'>{CONTACT_CONTENT.description}</p>
+          <p className={PAGE_CLASS_NAMES.description}>{CONTACT_CONTENT.description}</p>
         </div>
 
         <motion.div
@@ -45,24 +39,22 @@ export function Contact(): JSX.Element {
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, margin: '-100px' }}
-          className='flex flex-col gap-6'
+          className={PAGE_CLASS_NAMES.cardList}
         >
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+          <div className={PAGE_CLASS_NAMES.bookingGrid}>
             <motion.div
               data-testid={TEST_ID.airbnb}
               variants={itemVariants}
-              className='flex flex-col items-center text-center p-7 rounded-xl border border-stone-200 bg-stone-50'
+              className={PAGE_CLASS_NAMES.card}
             >
-              <ExternalLink className='w-7 h-7 text-gold-500 mb-3' />
-              <h3 className='font-serif text-lg font-semibold text-stone-900 mb-1'>
-                {CONTACT_CONTENT.airbnb.headline}
-              </h3>
-              <p className='text-stone-500 text-sm mb-5'>{CONTACT_CONTENT.airbnb.subCopy}</p>
+              <ExternalLink className={PAGE_CLASS_NAMES.cardIcon} />
+              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.airbnb.headline}</h3>
+              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.airbnb.subCopy}</p>
               <a
                 href={contact.airbnbUrl}
                 target='_blank'
-                rel='noopener noreferrer'
-                className='mt-auto px-5 py-2 rounded-lg bg-gold-500 text-white font-sans font-semibold text-sm hover:bg-gold-600 transition-colors'
+                rel={EXTERNAL_LINK_REL}
+                className={PAGE_CLASS_NAMES.ctaPrimary}
               >
                 {CONTACT_CONTENT.airbnb.cta}
               </a>
@@ -71,18 +63,16 @@ export function Contact(): JSX.Element {
             <motion.div
               data-testid={TEST_ID.bookingCom}
               variants={itemVariants}
-              className='flex flex-col items-center text-center p-7 rounded-xl border border-stone-200 bg-stone-50'
+              className={PAGE_CLASS_NAMES.card}
             >
-              <ExternalLink className='w-7 h-7 text-gold-500 mb-3' />
-              <h3 className='font-serif text-lg font-semibold text-stone-900 mb-1'>
-                {CONTACT_CONTENT.bookingCom.headline}
-              </h3>
-              <p className='text-stone-500 text-sm mb-5'>{CONTACT_CONTENT.bookingCom.subCopy}</p>
+              <ExternalLink className={PAGE_CLASS_NAMES.cardIcon} />
+              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.bookingCom.headline}</h3>
+              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.bookingCom.subCopy}</p>
               <a
                 href={contact.bookingComUrl}
                 target='_blank'
-                rel='noopener noreferrer'
-                className='mt-auto px-5 py-2 rounded-lg bg-gold-500 text-white font-sans font-semibold text-sm hover:bg-gold-600 transition-colors'
+                rel={EXTERNAL_LINK_REL}
+                className={PAGE_CLASS_NAMES.ctaPrimary}
               >
                 {CONTACT_CONTENT.bookingCom.cta}
               </a>
@@ -91,40 +81,36 @@ export function Contact(): JSX.Element {
             <motion.div
               data-testid={TEST_ID.seanrent}
               variants={itemVariants}
-              className='flex flex-col items-center text-center p-7 rounded-xl border border-stone-200 bg-stone-50'
+              className={PAGE_CLASS_NAMES.card}
             >
-              <ExternalLink className='w-7 h-7 text-gold-500 mb-3' />
-              <h3 className='font-serif text-lg font-semibold text-stone-900 mb-1'>
-                {CONTACT_CONTENT.seanrent.headline}
-              </h3>
-              <p className='text-stone-500 text-sm mb-5'>{CONTACT_CONTENT.seanrent.subCopy}</p>
+              <ExternalLink className={PAGE_CLASS_NAMES.cardIcon} />
+              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.seanrent.headline}</h3>
+              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.seanrent.subCopy}</p>
               <a
                 href={contact.seanrentUrl}
                 target='_blank'
-                rel='noopener noreferrer'
-                className='mt-auto px-5 py-2 rounded-lg bg-gold-500 text-white font-sans font-semibold text-sm hover:bg-gold-600 transition-colors'
+                rel={EXTERNAL_LINK_REL}
+                className={PAGE_CLASS_NAMES.ctaPrimary}
               >
                 {CONTACT_CONTENT.seanrent.cta}
               </a>
             </motion.div>
           </div>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+          <div className={PAGE_CLASS_NAMES.contactGrid}>
             <motion.div
               data-testid={TEST_ID.whatsapp}
               variants={itemVariants}
-              className='flex flex-col items-center text-center p-7 rounded-xl border border-stone-200 bg-stone-50'
+              className={PAGE_CLASS_NAMES.card}
             >
-              <MessageCircle className='w-7 h-7 text-gold-500 mb-3' />
-              <h3 className='font-serif text-lg font-semibold text-stone-900 mb-1'>
-                {CONTACT_CONTENT.whatsapp.headline}
-              </h3>
-              <p className='text-stone-500 text-sm mb-5'>{CONTACT_CONTENT.whatsapp.subCopy}</p>
+              <MessageCircle className={PAGE_CLASS_NAMES.cardIcon} />
+              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.whatsapp.headline}</h3>
+              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.whatsapp.subCopy}</p>
               <a
                 href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(CONTACT_CONTENT.whatsapp.prefilledMessage)}`}
                 target='_blank'
-                rel='noopener noreferrer'
-                className='mt-auto px-5 py-2 rounded-lg border border-stone-300 text-stone-700 font-sans font-semibold text-sm hover:border-gold-500 hover:text-gold-600 transition-colors'
+                rel={EXTERNAL_LINK_REL}
+                className={PAGE_CLASS_NAMES.ctaSecondary}
               >
                 {CONTACT_CONTENT.whatsapp.cta}
               </a>
@@ -133,17 +119,12 @@ export function Contact(): JSX.Element {
             <motion.div
               data-testid={TEST_ID.email}
               variants={itemVariants}
-              className='flex flex-col items-center text-center p-7 rounded-xl border border-stone-200 bg-stone-50'
+              className={PAGE_CLASS_NAMES.card}
             >
-              <Mail className='w-7 h-7 text-gold-500 mb-3' />
-              <h3 className='font-serif text-lg font-semibold text-stone-900 mb-1'>
-                {CONTACT_CONTENT.email.headline}
-              </h3>
-              <p className='text-stone-500 text-sm mb-5'>{CONTACT_CONTENT.email.subCopy}</p>
-              <a
-                href={`mailto:${contact.email}`}
-                className='mt-auto px-5 py-2 rounded-lg border border-stone-300 text-stone-700 font-sans font-semibold text-sm hover:border-gold-500 hover:text-gold-600 transition-colors'
-              >
+              <Mail className={PAGE_CLASS_NAMES.cardIcon} />
+              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.email.headline}</h3>
+              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.email.subCopy}</p>
+              <a href={`mailto:${contact.email}`} className={PAGE_CLASS_NAMES.ctaSecondary}>
                 {CONTACT_CONTENT.email.cta}
               </a>
             </motion.div>
