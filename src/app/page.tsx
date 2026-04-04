@@ -7,6 +7,7 @@ import { Details } from '@/components/sections/Details';
 import { Amenities } from '@/components/sections/Amenities';
 import { Gallery } from '@/components/sections/Gallery';
 import { Contact } from '@/components/sections/Contact';
+import { Footer } from '@/components/sections/Footer';
 
 export default function Home(): JSX.Element {
   return (
@@ -17,6 +18,7 @@ export default function Home(): JSX.Element {
       <Gallery />
       <Amenities />
       <Contact />
+      <Footer />
     </main>
   );
 }

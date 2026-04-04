@@ -12,7 +12,9 @@ export interface VillaData {
     phone: string;
     whatsapp: string;
     whatsappDisplay: string;
-    bookingUrl: string;
+    airbnbUrl: string;
+    bookingComUrl: string;
+    seanrentUrl: string;
   };
 }
 
@@ -31,6 +33,8 @@ export const villaData: VillaData = {
     phone: '+66-555-VILLA-01',
     whatsapp: '+66803685331',
     whatsappDisplay: '+66 803 685 331',
-    bookingUrl: 'https://www.airbnb.com/rooms/1588287133937803664',
+    airbnbUrl: 'https://www.airbnb.com/rooms/1588287133937803664',
+    bookingComUrl: 'https://www.booking.com/hotel/th/santisuk-villa-koh-phangan.html',
+    seanrentUrl: 'https://seanrent.bookingsboom.com/listing/22645/Koh-Phangan-SHIRA-property',
   },
 };
