@@ -43,7 +43,7 @@ export const PAGE_CLASS_NAMES = {
   title: 'mb-4 font-serif text-3xl font-bold text-stone-900 md:text-4xl',
   description: 'text-stone-500 max-w-xl mx-auto',
   cardList: 'flex flex-col gap-6',
-  bookingGrid: 'grid grid-cols-1 md:grid-cols-3 gap-6',
+  bookingGrid: 'grid grid-cols-1 mdc:grid-cols-3 gap-6',
   contactGrid: 'grid grid-cols-1 sm:grid-cols-2 gap-6',
   card: 'flex flex-col items-center text-center p-7 rounded-xl border border-stone-200 bg-stone-50',
   cardIcon: 'w-7 h-7 text-gold-500 mb-3',
