@@ -2,7 +2,7 @@ export const DETAILS_CONTENT = {
   SUBTITLE: 'At a Glance',
   TITLE: 'Our House',
   IMAGE: {
-    src: 'images/gallery/entrance/entrance-vertical.jpg',
+    src: '/images/gallery/entrance/entrance-vertical.jpg',
     alt: 'Villa entrance',
   },
   FACTS: [
