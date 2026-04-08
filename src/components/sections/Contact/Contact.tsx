@@ -2,14 +2,21 @@
 
 import { JSX } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, MessageCircle, Mail } from 'lucide-react';
+import { MessageCircle, Mail } from 'lucide-react';
 import { villaData } from '@/data/villa';
 import { TEST_ID, CONTACT_CONTENT, EXTERNAL_LINK_REL, PAGE_CLASS_NAMES } from './constants';
 import { containerVariants, itemVariants } from './animations';
+import { BookingCard } from './BookingCard/BookingCard';
 
 export function Contact(): JSX.Element {
   const { contact } = villaData;
   const whatsappHref = `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(CONTACT_CONTENT.whatsapp.prefilledMessage)}`;
+
+  const bookingPlatforms = [
+    { testId: TEST_ID.airbnb, ...CONTACT_CONTENT.airbnb, href: contact.airbnbUrl },
+    { testId: TEST_ID.bookingCom, ...CONTACT_CONTENT.bookingCom, href: contact.bookingComUrl },
+    { testId: TEST_ID.seanrent, ...CONTACT_CONTENT.seanrent, href: contact.seanrentUrl },
+  ];
 
   return (
     <section id='contact' data-testid={TEST_ID.section} className={PAGE_CLASS_NAMES.section}>
@@ -32,61 +39,9 @@ export function Contact(): JSX.Element {
           className={PAGE_CLASS_NAMES.cardList}
         >
           <div className={PAGE_CLASS_NAMES.bookingGrid}>
-            <motion.div
-              data-testid={TEST_ID.airbnb}
-              variants={itemVariants}
-              className={PAGE_CLASS_NAMES.card}
-            >
-              <ExternalLink className={PAGE_CLASS_NAMES.cardIcon} />
-              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.airbnb.headline}</h3>
-              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.airbnb.subCopy}</p>
-              <a
-                href={contact.airbnbUrl}
-                target='_blank'
-                rel={EXTERNAL_LINK_REL}
-                className={PAGE_CLASS_NAMES.ctaPrimary}
-              >
-                {CONTACT_CONTENT.airbnb.cta}
-              </a>
-            </motion.div>
-
-            <motion.div
-              data-testid={TEST_ID.bookingCom}
-              variants={itemVariants}
-              className={PAGE_CLASS_NAMES.card}
-            >
-              <ExternalLink className={PAGE_CLASS_NAMES.cardIcon} />
-              <h3 className={PAGE_CLASS_NAMES.cardHeading}>
-                {CONTACT_CONTENT.bookingCom.headline}
-              </h3>
-              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.bookingCom.subCopy}</p>
-              <a
-                href={contact.bookingComUrl}
-                target='_blank'
-                rel={EXTERNAL_LINK_REL}
-                className={PAGE_CLASS_NAMES.ctaPrimary}
-              >
-                {CONTACT_CONTENT.bookingCom.cta}
-              </a>
-            </motion.div>
-
-            <motion.div
-              data-testid={TEST_ID.seanrent}
-              variants={itemVariants}
-              className={PAGE_CLASS_NAMES.card}
-            >
-              <ExternalLink className={PAGE_CLASS_NAMES.cardIcon} />
-              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.seanrent.headline}</h3>
-              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.seanrent.subCopy}</p>
-              <a
-                href={contact.seanrentUrl}
-                target='_blank'
-                rel={EXTERNAL_LINK_REL}
-                className={PAGE_CLASS_NAMES.ctaPrimary}
-              >
-                {CONTACT_CONTENT.seanrent.cta}
-              </a>
-            </motion.div>
+            {bookingPlatforms.map((platform) => (
+              <BookingCard key={platform.testId} {...platform} />
+            ))}
           </div>
 
           <div className={PAGE_CLASS_NAMES.contactGrid}>
