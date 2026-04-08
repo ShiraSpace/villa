@@ -212,6 +212,11 @@ export const GALLERY_CONTENT = {
       category: 'interior',
     },
     {
+      src: '/images/gallery/guests-bedroom/guests-bedroom-horizontal.jpg',
+      alt: 'Bedrooms wide',
+      category: 'bedrooms',
+    },
+    {
       src: '/images/gallery/guests-bedroom/working-station.jpg',
       alt: 'Working station',
       category: 'bedrooms',
