@@ -10,6 +10,10 @@ export interface VillaData {
   contact: {
     email: string;
     phone: string;
+    whatsapp: string;
+    airbnbUrl: string;
+    bookingComUrl: string;
+    seanrentUrl: string;
   };
 }
 
@@ -24,7 +28,11 @@ export const villaData: VillaData = {
     bathrooms: 2,
   },
   contact: {
-    email: 'info@santisukh-villa.com',
+    email: 'happiness.house.phangan@gmail.com',
     phone: '+66-555-VILLA-01',
+    whatsapp: '+66803685331',
+    airbnbUrl: 'https://www.airbnb.com/rooms/1588287133937803664',
+    bookingComUrl: 'https://www.booking.com/hotel/th/santisuk-villa-koh-phangan.html',
+    seanrentUrl: 'https://seanrent.bookingsboom.com/listing/22645/Koh-Phangan-SHIRA-property',
   },
 };
