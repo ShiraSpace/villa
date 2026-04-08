@@ -5,21 +5,11 @@ import { motion } from 'framer-motion';
 import { ExternalLink, MessageCircle, Mail } from 'lucide-react';
 import { villaData } from '@/data/villa';
 import { TEST_ID, CONTACT_CONTENT, EXTERNAL_LINK_REL, PAGE_CLASS_NAMES } from './constants';
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
-};
+import { containerVariants, itemVariants } from './animations';
 
 export function Contact(): JSX.Element {
   const { contact } = villaData;
+  const whatsappHref = `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(CONTACT_CONTENT.whatsapp.prefilledMessage)}`;
 
   return (
     <section id='contact' data-testid={TEST_ID.section} className={PAGE_CLASS_NAMES.section}>
@@ -66,7 +56,9 @@ export function Contact(): JSX.Element {
               className={PAGE_CLASS_NAMES.card}
             >
               <ExternalLink className={PAGE_CLASS_NAMES.cardIcon} />
-              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.bookingCom.headline}</h3>
+              <h3 className={PAGE_CLASS_NAMES.cardHeading}>
+                {CONTACT_CONTENT.bookingCom.headline}
+              </h3>
               <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.bookingCom.subCopy}</p>
               <a
                 href={contact.bookingComUrl}
@@ -107,7 +99,7 @@ export function Contact(): JSX.Element {
               <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.whatsapp.headline}</h3>
               <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.whatsapp.subCopy}</p>
               <a
-                href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(CONTACT_CONTENT.whatsapp.prefilledMessage)}`}
+                href={whatsappHref}
                 target='_blank'
                 rel={EXTERNAL_LINK_REL}
                 className={PAGE_CLASS_NAMES.ctaSecondary}

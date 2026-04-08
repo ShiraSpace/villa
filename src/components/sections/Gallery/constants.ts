@@ -132,11 +132,6 @@ export const GALLERY_CONTENT = {
       category: 'bedrooms',
     },
     {
-      src: '/images/gallery/guests-bedroom/guests-bedroom-window.jpg',
-      alt: 'Guest bedroom window',
-      category: 'bedrooms',
-    },
-    {
       src: '/images/gallery/exterior/balcony-and-pool-from-inside.jpg',
       alt: 'Pool view from inside',
       category: 'pool-views',
@@ -180,11 +175,6 @@ export const GALLERY_CONTENT = {
       src: '/images/gallery/interior/interior-bathroom-vertical.jpg',
       alt: 'Bathroom',
       category: 'interior',
-    },
-    {
-      src: '/images/gallery/guests-bedroom/guests-bedroom-side.jpg',
-      alt: 'Guest bedroom side',
-      category: 'bedrooms',
     },
     {
       src: '/images/gallery/garden/exterior-garden-2.jpg',

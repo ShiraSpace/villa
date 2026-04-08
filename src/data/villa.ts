@@ -11,7 +11,6 @@ export interface VillaData {
     email: string;
     phone: string;
     whatsapp: string;
-    whatsappDisplay: string;
     airbnbUrl: string;
     bookingComUrl: string;
     seanrentUrl: string;
@@ -32,7 +31,6 @@ export const villaData: VillaData = {
     email: 'happiness.house.phangan@gmail.com',
     phone: '+66-555-VILLA-01',
     whatsapp: '+66803685331',
-    whatsappDisplay: '+66 803 685 331',
     airbnbUrl: 'https://www.airbnb.com/rooms/1588287133937803664',
     bookingComUrl: 'https://www.booking.com/hotel/th/santisuk-villa-koh-phangan.html',
     seanrentUrl: 'https://seanrent.bookingsboom.com/listing/22645/Koh-Phangan-SHIRA-property',
