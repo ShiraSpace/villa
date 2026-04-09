@@ -1,12 +1,13 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { Header } from '@/components/navigation/Header';
 
 export const metadata: Metadata = {
-  title: 'Mips Grove | Luxury Villa Rental',
+  title: 'Baan Sook - Happiness in the jungle',
   description:
-    'Experience luxury living at Mips Grove. Your dream vacation awaits at our beautiful villa.',
+    'Experience luxury living at Koh Phangan. Your dream vacation awaits at our beautiful villa.',
 };
 
 export default function RootLayout({
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <Analytics />
       </body>
     </html>
   );
