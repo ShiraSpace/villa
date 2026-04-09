@@ -5,8 +5,9 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
 import { villaData } from '@/data/villa';
 import { TEST_ID, CONTACT_CONTENT, EXTERNAL_LINK_REL, PAGE_CLASS_NAMES } from './constants';
-import { containerVariants, itemVariants } from './animations';
+import { containerVariants } from './animations';
 import { BookingCard } from './BookingCard/BookingCard';
+import { ContactCard } from './ContactCard/ContactCard';
 
 export function Contact(): JSX.Element {
   const { contact } = villaData;
@@ -45,36 +46,24 @@ export function Contact(): JSX.Element {
           </div>
 
           <div className={PAGE_CLASS_NAMES.contactGrid}>
-            <motion.div
-              data-testid={TEST_ID.whatsapp}
-              variants={itemVariants}
-              className={PAGE_CLASS_NAMES.card}
-            >
-              <MessageCircle className={PAGE_CLASS_NAMES.cardIcon} />
-              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.whatsapp.headline}</h3>
-              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.whatsapp.subCopy}</p>
-              <a
-                href={whatsappHref}
-                target='_blank'
-                rel={EXTERNAL_LINK_REL}
-                className={PAGE_CLASS_NAMES.ctaSecondary}
-              >
-                {CONTACT_CONTENT.whatsapp.cta}
-              </a>
-            </motion.div>
-
-            <motion.div
-              data-testid={TEST_ID.email}
-              variants={itemVariants}
-              className={PAGE_CLASS_NAMES.card}
-            >
-              <Mail className={PAGE_CLASS_NAMES.cardIcon} />
-              <h3 className={PAGE_CLASS_NAMES.cardHeading}>{CONTACT_CONTENT.email.headline}</h3>
-              <p className={PAGE_CLASS_NAMES.cardSubCopy}>{CONTACT_CONTENT.email.subCopy}</p>
-              <a href={`mailto:${contact.email}`} className={PAGE_CLASS_NAMES.ctaSecondary}>
-                {CONTACT_CONTENT.email.cta}
-              </a>
-            </motion.div>
+            <ContactCard
+              testId={TEST_ID.whatsapp}
+              icon={MessageCircle}
+              headline={CONTACT_CONTENT.whatsapp.headline}
+              subCopy={CONTACT_CONTENT.whatsapp.subCopy}
+              href={whatsappHref}
+              cta={CONTACT_CONTENT.whatsapp.cta}
+              target='_blank'
+              rel={EXTERNAL_LINK_REL}
+            />
+            <ContactCard
+              testId={TEST_ID.email}
+              icon={Mail}
+              headline={CONTACT_CONTENT.email.headline}
+              subCopy={CONTACT_CONTENT.email.subCopy}
+              href={`mailto:${contact.email}`}
+              cta={CONTACT_CONTENT.email.cta}
+            />
           </div>
         </motion.div>
       </div>
