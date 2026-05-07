@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A luxury villa rental website built with Next.js 15, React 19, TypeScript, and Tailwind CSS. The project uses the Next.js App Router architecture.
 
-**Villa Name**: S̄ạntis̄uk̄h Villa
+**Villa Name**: House of Happiness - Baan Sook Villa
 **Type**: Single-page informational website (no booking system)
 **Contact**: mailto/tel links (no contact form)
 

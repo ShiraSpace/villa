@@ -1,6 +1,8 @@
+export const VIDEO_FADE_DELAY_MS = 1500;
+
 export const HERO_CONTENT = {
   CTA_TEXT: 'Contact Us',
-  IMAGE_ALT: 'S̄ạntis̄uk̄h Villa exterior view',
+  IMAGE_ALT: 'House of Happiness Villa exterior view',
 };
 
 export const TEST_ID = {
@@ -9,6 +11,7 @@ export const TEST_ID = {
   HERO_TAGLINE: 'hero-tagline',
   HERO_CTA: 'hero-cta',
   HERO_SCROLL_INDICATOR: 'hero-scroll-indicator',
+  HERO_BACKGROUND_IMAGE: 'hero-background-image',
   HERO_BACKGROUND_OVERLAY: 'hero-background-overlay',
   HERO_BACKGROUND_VIDEO: 'hero-background-video',
 };
